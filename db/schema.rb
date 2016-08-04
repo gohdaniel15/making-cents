@@ -23,15 +23,6 @@ ActiveRecord::Schema.define(version: 20160804060535) do
     t.index ["user_id"], name: "index_chat_rooms_on_user_id", using: :btree
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.text     "body"
-    t.integer  "user_id"
-    t.integer  "chat_room_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["chat_room_id"], name: "index_messages_on_chat_room_id", using: :btree
-    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
-
   create_table "consultants", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "qualifications"
@@ -43,6 +34,16 @@ ActiveRecord::Schema.define(version: 20160804060535) do
     t.integer  "class_size",     default: 1
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "chat_room_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["chat_room_id"], name: "index_messages_on_chat_room_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,11 +62,8 @@ ActiveRecord::Schema.define(version: 20160804060535) do
     t.index ["remember_token"], name: "index_users_on_remember_token", using: :btree
   end
 
-<<<<<<< HEAD
-=======
   add_foreign_key "chat_rooms", "users"
+  add_foreign_key "consultants", "users", column: "users_id"
   add_foreign_key "messages", "chat_rooms"
   add_foreign_key "messages", "users"
-  add_foreign_key "consultants", "users", column: "users_id"
->>>>>>> master
 end
