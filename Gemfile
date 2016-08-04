@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 gem "clearance"
 
 # Surya's gems
+byebug
 
 # Daniel's gems
 
