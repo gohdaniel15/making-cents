@@ -3,18 +3,18 @@ module ApplicationCable
     identified_by :current_user
 
     def connect
-      self.current_user = User.first # Not sure if this works
+      self.current_user = find_verified_user
       logger.add_tags 'ActionCable', current_user.email
     end
 
-    # protected
+    protected
 
-    # def find_verified_user # this checks whether a user is authenticated with devise
-    #   if verified_user == env['warden'].user
-    #     verified_user
-    #   else
-    #     reject_unauthorized_connection
-    #   end
-    # end
+    def find_verified_user # this checks whether a user is authenticated with devise
+      if verified_user = @request.env[:clearance].current_user
+        verified_user
+      else
+        reject_unauthorized_connection
+      end
+    end
   end
 end
