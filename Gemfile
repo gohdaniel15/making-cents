@@ -34,6 +34,8 @@ gem "clearance"
 
 # Daniel's gems
 
+# Ann-Marie's gems
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
