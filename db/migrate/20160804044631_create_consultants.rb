@@ -1,7 +1,7 @@
 class CreateConsultants < ActiveRecord::Migration[5.0]
   def change
     create_table :consultants do |t|
-    	t.references :users, foreign_key: true
+    	t.integer :user_id
     	t.string :qualifications #, null: false
     	t.string :languages # null: false 
     	t.float :ratings, default: 0.00
