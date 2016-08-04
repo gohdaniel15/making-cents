@@ -1,18 +1,17 @@
 class ConsultantsController < ApplicationController
-	before_action :require_login #, :get_user_id
+	before_action :require_login
 
 	def new 
 		@consultant = Consultant.new
 	end 
 
 	def create
-		byebug
+		@user_id = :user_id 
 		@consultant = User.first.consultants.new(consultant_params)
-		byebug
 		if @consultant.save
-			redirect_to :action => 'edit'
+			redirect_to edit_consultant_path(current_user)
 		else
-			render :action => 'new'
+			render :action => "new"
 		end
 	end
 
@@ -33,10 +32,14 @@ class ConsultantsController < ApplicationController
 		#	@consultant = Consultant.find_by(user_id: params[:user_id])?
 
 		if @consultant.update_attributes(consultant_params)
-			redirect_to :action => 'show', :id => @consultant
-		else
+			@consultant.user.name = params[:consultant][:user][:name]
+			@consultant.description = params[:consultant][:description]
+			@consultant.save!
+			@consultant.user.save!
+		# 	redirect_to :action => 'show', :id => @consultant
+		# else
 			render :action => 'edit'
-		end
+	 	end	
 	end
 
    def delete
@@ -46,6 +49,11 @@ class ConsultantsController < ApplicationController
 
 	private
 		def consultant_params
-	   params.require(:consultant).permit(:qualifications, :languages, :location)
-	end
+	   params.require(:consultant).permit(:qualifications, :languages, :location, :user_id)
+	   # params.require(:user).permit(:name, :email)
+		end
+
+		# def updated_consultant_params
+		# 	params.require(:consultant).permit(:name)
+		# end
 end
