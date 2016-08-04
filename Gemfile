@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Shalina's gems
 gem "clearance"
+gem "omniauth-google-oauth2", "~> 0.2.1"
+gem "figaro"
 
 # Surya's gems
 
