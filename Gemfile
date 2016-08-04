@@ -29,6 +29,8 @@ gem 'redis', '~> 3.0'
 
 # Shalina's gems
 gem "clearance"
+gem "omniauth-google-oauth2", "~> 0.2.1"
+gem "figaro"
 
 # Surya's gems
 
