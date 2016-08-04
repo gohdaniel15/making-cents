@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   include Clearance::User
-  def self.from_omniauth(auth)
+
+  has_many :consultants
+ 
+ def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
       user.email = auth[:info][:email]
       user.password = ('0'..'z').to_a.shuffle.first(8).join

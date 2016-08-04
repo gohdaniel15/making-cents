@@ -15,6 +15,20 @@ ActiveRecord::Schema.define(version: 20160804060038) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "consultants", force: :cascade do |t|
+    t.integer  "users_id"
+    t.string   "qualifications"
+    t.string   "languages"
+    t.float    "ratings",        default: 0.0
+    t.string   "location"
+    t.string   "description"
+    t.integer  "availability",   default: 1
+    t.integer  "class_size",     default: 1
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["users_id"], name: "index_consultants_on_users_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
@@ -31,4 +45,5 @@ ActiveRecord::Schema.define(version: 20160804060038) do
     t.index ["remember_token"], name: "index_users_on_remember_token", using: :btree
   end
 
+  add_foreign_key "consultants", "users", column: "users_id"
 end
