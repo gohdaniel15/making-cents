@@ -35,7 +35,6 @@ gem 'omniauth-facebook'
 gem 'carrierwave'
 
 # Surya's gems
-byebug
 
 # Daniel's gems
 gem 'bootstrap'
