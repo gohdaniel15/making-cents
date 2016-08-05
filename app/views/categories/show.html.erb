@@ -1,2 +1,11 @@
 <h2><%=@category.category_name %></h2>
 <h3>Here is a list of consultants ready to help you make cents of your money!</h3>
+
+
+
+	<% @category do |c| %>
+		<a href="/consultant/<%=c.consultant.id%>"><%= c.consultant.name %></a>
+		<ul><%= c.consultant.location %></ul>
+		<ul><%= c.consultant.qualifications%></ul>
+		<ul><%= c.consultant.location %></ul>
+<% end %> 
