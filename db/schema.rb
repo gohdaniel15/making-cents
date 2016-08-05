@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20160804060535) do
   end
 
   create_table "consultants", force: :cascade do |t|
-    t.integer  "users_id"
+    t.integer  "user_id"
     t.string   "qualifications"
     t.string   "languages"
     t.float    "ratings",        default: 0.0
@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 20160804060535) do
     t.integer  "class_size",     default: 1
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.index ["users_id"], name: "index_consultants_on_users_id", using: :btree
   end
 
   create_table "messages", force: :cascade do |t|
