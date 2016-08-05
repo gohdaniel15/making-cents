@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   	user = User.from_omniauth(env["omniauth.auth"])
 
     session[:user_id] = user.id
-    redirect_to edit_user_password_path
+    redirect_to edit_user_password_path(user)
   end
 
   def destroy

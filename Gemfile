@@ -31,6 +31,8 @@ gem 'redis', '~> 3.0'
 gem "clearance"
 gem "omniauth-google-oauth2", "~> 0.2.1"
 gem "figaro"
+gem 'omniauth-facebook'
+gem 'carrierwave'
 
 # Surya's gems
 
