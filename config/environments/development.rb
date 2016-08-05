@@ -44,7 +44,15 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
-
+  config.action_mailer.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+  :port           => 587,
+  :address        => "smtp.mailgun.org",
+  :domain         => ENV['Domain'],
+  :user_name      => ENV['username'],
+  :password       => ENV['password'],
+  :authentication => :plain,
+}
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
