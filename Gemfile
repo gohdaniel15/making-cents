@@ -36,7 +36,6 @@ gem 'carrierwave'
 gem "mini_magick"
 
 # Surya's gems
-byebug
 
 # Daniel's gems
 gem 'bootstrap'
