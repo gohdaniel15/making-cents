@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805035026) do
+ActiveRecord::Schema.define(version: 20160805100816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.integer  "consultant_id"
+    t.string   "category_name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "chat_rooms", force: :cascade do |t|
     t.string   "title"
@@ -24,17 +31,13 @@ ActiveRecord::Schema.define(version: 20160805035026) do
   end
 
   create_table "consultants", force: :cascade do |t|
-    t.integer  "users_id"
+    t.integer  "user_id"
     t.string   "qualifications"
     t.string   "languages"
-    t.float    "ratings",        default: 0.0
     t.string   "location"
     t.string   "description"
-    t.integer  "availability",   default: 1
-    t.integer  "class_size",     default: 1
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.index ["users_id"], name: "index_consultants_on_users_id", using: :btree
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "messages", force: :cascade do |t|
@@ -66,7 +69,6 @@ ActiveRecord::Schema.define(version: 20160805035026) do
   end
 
   add_foreign_key "chat_rooms", "users"
-  add_foreign_key "consultants", "users", column: "users_id"
   add_foreign_key "messages", "chat_rooms"
   add_foreign_key "messages", "users"
 end

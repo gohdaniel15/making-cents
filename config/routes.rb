@@ -24,8 +24,10 @@ Rails.application.routes.draw do
   resources :chat_rooms, only: [:new, :create, :show, :index]
   mount ActionCable.server => '/cable'
 
+  # routes for consultants
   resources :consultants
 
+  # routes for sessions
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
@@ -34,4 +36,7 @@ Rails.application.routes.draw do
   resource :home, only: [:show]
 
   root to: "home#show"
+
+  #routes for categories
+  resources :categories, only: [:show, :index]
 end
