@@ -33,6 +33,7 @@ gem "omniauth-google-oauth2", "~> 0.2.1"
 gem "figaro"
 gem 'omniauth-facebook'
 gem 'carrierwave'
+gem "mini_magick"
 
 # Surya's gems
 
