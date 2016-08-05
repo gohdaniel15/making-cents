@@ -1,0 +1,33 @@
+<h2>Consultant profile</h2>
+<p>
+ <strong>Full name:</strong>
+ <%= @consultant.user.name %>
+</p>
+
+<p>
+ <strong>Email:</strong>
+ <%= @consultant.user.email %>
+</p>
+
+<p>
+ <strong>Qualifications:</strong>
+ <%= @consultant.qualifications %>
+</p>
+
+<p>
+ <strong>Languages:</strong>
+ <%= @consultant.languages %>
+</p>
+
+<p>
+ <strong>Location</strong>
+ <%= @consultant.location %>
+</p>
+
+<p>
+ <strong>Description</strong>
+ <%= @consultant.description %>
+</p>
+
+<p><%= link_to 'Edit profile', edit_consultant_path(@consultant) %>
+</p>
