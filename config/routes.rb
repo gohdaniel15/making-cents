@@ -1,14 +1,9 @@
 Rails.application.routes.draw do
-  get 'sessions/create'
-
-  get 'sessions/destroy'
-
-  get 'home/show'
-
+  root to: "home#show"
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
-  resources :users, controller: "users", only: [:create] do
+  resources :users, controller: "users", only: [:create, :edit, :update] do
     resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
@@ -35,7 +30,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
   resource :home, only: [:show]
 
-  root to: "home#show"
+ root to: "home#show"
 
   #routes for categories
   resources :categories, only: [:show, :index]
