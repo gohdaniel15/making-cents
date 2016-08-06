@@ -43,9 +43,8 @@ GEM
     autoprefixer-rails (6.4.0)
       execjs
     bcrypt (3.1.11)
-    bootstrap (4.0.0.alpha3.1)
-      autoprefixer-rails (>= 6.0.3)
-      sass (>= 3.4.19)
+    bootstrap-sass (3.2.0.2)
+      sass (~> 3.2)
     builder (3.2.2)
     byebug (9.0.5)
     carrierwave (0.11.2)
@@ -219,7 +218,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap
+  autoprefixer-rails
+  bootstrap-sass
   byebug
   carrierwave
   clearance
