@@ -31,7 +31,7 @@ class ConsultantsController < ApplicationController
 		@consultant = Consultant.find(params[:id])
 		#	@consultant = Consultant.find_by(user_id: params[:user_id])?
 
-		if @consultant.update_attributes(consultant_params)
+		if  @consultant.update_attributes(consultant_params)
 			@consultant.user.name = params[:consultant][:user][:name]
 			@consultant.description = params[:consultant][:description]
 			@consultant.save!
