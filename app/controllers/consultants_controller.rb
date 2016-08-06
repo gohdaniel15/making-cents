@@ -36,8 +36,8 @@ class ConsultantsController < ApplicationController
 			@consultant.description = params[:consultant][:description]
 			@consultant.save!
 			@consultant.user.save!
-		# 	redirect_to :action => 'show', :id => @consultant
-		# else
+			redirect_to :action => 'show', :id => @consultant
+		else
 			render :action => 'edit'
 	 	end	
 	end

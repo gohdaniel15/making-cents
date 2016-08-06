@@ -25,6 +25,11 @@
 		  <%= form.text_field :description, type: 'description' %>
 		</div>
 
+	<div class="file-field">
+	  <%= form.label "Upload a profile picture" %>
+	  <%= form.file_field :profile_picture %>
+	</div>
+
 	<div class="submit-field">
       <%= form.submit %>
     </div>
