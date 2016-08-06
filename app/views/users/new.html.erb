@@ -8,8 +8,15 @@
       <%= form.submit %>
     </div>
 
+    <button><%= link_to "Sign up with Google", "/auth/google_oauth2", id: "sign_in" %></button>
+    <button><%= link_to "Sign up with Facebook", "/auth/facebook", id: "sign_in" %></button>
+
     <div class="other-links">
-      <%= link_to t(".sign_in"), sign_in_path %>
+      <p>Already have an account with us?
+        <%= link_to t(".sign_in"), sign_in_path %>
+      </p>
     </div>
   <% end %>
+
+
 </div>

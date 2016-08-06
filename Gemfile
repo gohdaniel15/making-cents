@@ -39,8 +39,8 @@ gem 'mailgun-ruby', '~> 1.1', require: 'mailgun'
 # Surya's gem
 
 # Daniel's gems
-gem 'bootstrap'
-
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 
 # Ann-Marie's gems
 
