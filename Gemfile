@@ -1,3 +1,19 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @Cozzie
+ Unwatch 4
+  Star 0
+ Fork 0 gohdaniel15/making-cents
+ Code  Issues 0  Pull requests 1  Wiki  Pulse  Graphs
+Branch: master Find file Copy pathmaking-cents/Gemfile
+08ffcd4  19 hours ago
+@gohdaniel15 gohdaniel15 tidied up home page and sign in and added navbar
+3 contributors @gohdaniel15 @Cozzie @so-hardkhor
+RawBlameHistory     67 lines (54 sloc)  1.97 KB
 source 'https://rubygems.org'
 
 
@@ -33,12 +49,14 @@ gem "omniauth-google-oauth2", "~> 0.2.1"
 gem "figaro"
 gem 'omniauth-facebook'
 gem 'carrierwave'
+gem "mini_magick"
+gem 'mailgun-ruby', '~> 1.1', require: 'mailgun'
 
 # Surya's gems
 
 # Daniel's gems
-gem 'bootstrap'
-
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 
 # Ann-Marie's gems
 
@@ -62,3 +80,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+Contact GitHub API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Status Help

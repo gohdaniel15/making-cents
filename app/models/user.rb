@@ -2,9 +2,14 @@ class User < ApplicationRecord
   include Clearance::User
   has_many :chat_rooms, dependent: :destroy
   has_many :messages, dependent: :destroy
+<<<<<<< HEAD
   has_one :consultant
   has_many :consultant_sessions
   has_many :user_consultants, through: :consultant_sessions
+=======
+  has_many :consultants
+  mount_uploader :avatar, AvatarUploader
+>>>>>>> master
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
@@ -18,5 +23,4 @@ class User < ApplicationRecord
       user.save!
     end
   end
-
 end
