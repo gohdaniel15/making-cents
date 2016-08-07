@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :chat_rooms, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :consultants
+  mount_uploader :avatar, AvatarUploader
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
@@ -16,5 +17,4 @@ class User < ApplicationRecord
       user.save!
     end
   end
-
 end

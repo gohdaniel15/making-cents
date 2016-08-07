@@ -3,4 +3,13 @@
 
   <%= render partial: '/sessions/form' %>
 
+  <button><%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %></button>
+  <button><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></button>
+
+
+  <% if Clearance.configuration.allow_sign_up? %>
+    <p>Haven't got an account yet?
+      <%= link_to t(".sign_up"), sign_up_path %> with us
+    </p>
+  <% end %>
 </div>

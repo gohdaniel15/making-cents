@@ -1,9 +1,0 @@
-<p>These are the current books in our system</p> <% unless @consultants.blank? %>
-
-   <% @books.each do |c| %>
-   <li><%= link_to c.title, {:action => 'show', :id => c.id} -%></li>
-   <% end %>
-</ul>
-
-<% end %>
-<p><%= link_to "Add new Book", {:action => 'new' }%></p>

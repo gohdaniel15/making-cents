@@ -33,12 +33,14 @@ gem "omniauth-google-oauth2", "~> 0.2.1"
 gem "figaro"
 gem 'omniauth-facebook'
 gem 'carrierwave'
+gem "mini_magick"
+gem 'mailgun-ruby', '~> 1.1', require: 'mailgun'
 
 # Surya's gems
 
 # Daniel's gems
-gem 'bootstrap'
-
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 
 # Ann-Marie's gems
 

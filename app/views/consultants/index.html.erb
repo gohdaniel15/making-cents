@@ -1,0 +1,7 @@
+<% @consultants.each do |c| %>
+  <h3><%= c.user.name %></h3>
+  <p>Location: <%= c.location %></p>
+  <p>Languages: <%= c.languages %></p>
+  <p>Qualifications: <%= c.qualifications %></p>
+  <a href="/consultants/<%= c.id %>">Profile</a>
+<% end %>
