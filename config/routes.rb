@@ -25,9 +25,13 @@ Rails.application.routes.draw do
 
   # routes for consultants
   resources :consultants
+<<<<<<< HEAD
   
   resources :consultant_sessions
   
+=======
+
+>>>>>>> 8bacc9c78aa662b7b840907b073a5a4845a23a2a
   #routes for categories
   resources :categories, only: [:show, :index]
 end
