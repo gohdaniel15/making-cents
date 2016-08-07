@@ -1,0 +1,66 @@
+<h1>Consultant Sessions#index</h1>
+
+<%= link_to 'New Sessions', new_listing_path %>
+
+<h1>All Sessions</h1>
+
+<table>
+    <tr>
+        <th>No.</th>
+        <th>Consultant Name</th>
+        <th>User Name</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Actual End Time</th>
+        <th>Session Status</th>
+        <th>rating</th>
+        <th>review</th>
+    </tr>
+
+    <% Consultant_session.all.each do |s| %>
+    <% n = 1 %>
+    <tr>
+        <th><%= n %></th>
+        <% n += 1 %>
+        <td><%= link_to s.user_consultant.full_name, listing_path(l) %></td>
+        <td><%= link_to s.user.full_name, listing_path(l) %></td>
+        <td><%= s.start_time %></td>
+        <td><%= s.end_time %></td>
+        <td><%= s.actual_end_time %></td>
+        <td><%= s.rating %></td>
+        <td><%= s.review %></td>
+        </td>
+    </tr>
+    <%end%>
+</table>
+
+<h1>Your Sessions</h1>
+<table>
+    <tr>
+        <th>No.</th>
+        <th>Consultant Name</th>
+        <th>User Name</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Actual End Time</th>
+        <th>Session Status</th>
+        <th>Rating</th>
+        <th>Review</th>
+    </tr>
+
+    <% current_user.sessions.each do |s| %>
+    <% n = 1 %>
+    <tr>
+        <th><%= n %></th>
+        <% n += 1 %>
+        <td><%= link_to s., listing_path(l) %></td>
+        <td><%= s.start_time %></td>
+        <td><%= s.end_time %></td>
+        <td><%= s.actual_end_time %></td>
+        <td><%= s.rating %></td>
+        <td><%= s.review %></td>
+        <td><%= link_to 'Edit', edit_listing_path(s) %></td>
+        <td><%= link_to 'Delete', listing_path(s), method: :delete %></td>
+    </tr>
+    <%end%>
+</table>

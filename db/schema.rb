@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804060535) do
+ActiveRecord::Schema.define(version: 20160805035600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 20160804060535) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_chat_rooms_on_user_id", using: :btree
+  end
+
+  create_table "consultant_sessions", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "actual_end_time"
+    t.boolean  "session_status"
+    t.float    "rating"
+    t.string   "review"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "consultants", force: :cascade do |t|
@@ -63,7 +74,6 @@ ActiveRecord::Schema.define(version: 20160804060535) do
   end
 
   add_foreign_key "chat_rooms", "users"
-  add_foreign_key "consultants", "users", column: "users_id"
   add_foreign_key "messages", "chat_rooms"
   add_foreign_key "messages", "users"
 end

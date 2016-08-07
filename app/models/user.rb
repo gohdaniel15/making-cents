@@ -2,7 +2,9 @@ class User < ApplicationRecord
   include Clearance::User
   has_many :chat_rooms, dependent: :destroy
   has_many :messages, dependent: :destroy
-  has_many :consultants
+  has_one :consultant
+  has_many :consultant_sessions
+  has_many :user_consultants, through: :consultant_sessions
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
