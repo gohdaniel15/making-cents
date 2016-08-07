@@ -36,11 +36,7 @@ gem 'carrierwave'
 gem "mini_magick"
 gem 'mailgun-ruby', '~> 1.1', require: 'mailgun'
 
-<<<<<<< HEAD
 # Surya's gems
-=======
-# Surya's gem
->>>>>>> 8bacc9c78aa662b7b840907b073a5a4845a23a2a
 
 # Daniel's gems
 gem 'bootstrap-sass'
