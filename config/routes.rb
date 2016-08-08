@@ -28,7 +28,8 @@ Rails.application.routes.draw do
 
   # routes for consultant sessions
   resources :consultant_sessions
-  
+
   #routes for categories
   resources :categories, only: [:show, :index]
+  get "/loans" => "categories#loans", as: "loans"
 end

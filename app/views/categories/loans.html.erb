@@ -1,0 +1,8 @@
+<h2><%= @category.category_name %></h2>
+<h3>Here is a list of consultants ready to help you make cents of your money!</h3>
+
+<% @category.consultants.each do |c| %>
+  <%= c.user.name %>
+  <%= c.qualifications %>
+  <%= c.languages %>
+<% end %>
