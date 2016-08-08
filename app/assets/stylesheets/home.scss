@@ -1,3 +1,41 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.jumbotron {
+	height: 650px;
+	z-index: -1;
+	padding: 0 !important;
+	overflow: hidden;
+}
+
+video { 
+    /*position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: 650px;
+    z-index: 0;
+    transform: translateX(-50%) translateY(-50%);*/
+ background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+  width: 100%;
+}
+
+.headerTitle {
+	z-index: 1;
+}
+
+.stopfade { 
+   opacity: .5;
+}
+@media screen and (max-width: 500px) { 
+  div{width:70%;} 
+}
+@media screen and (max-device-width: 800px) {
+  html { background: url(//demosthenes.info/assets/images/polina.jpg) #000 no-repeat center center fixed; }
+  #bgvid { display: none; }
+}
