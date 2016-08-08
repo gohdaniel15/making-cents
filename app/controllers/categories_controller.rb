@@ -1,11 +1,10 @@
 class CategoriesController < ApplicationController
 
-	def show
-		@category = Category.find(params[:id])
+	def loans
+		@category = Category.find_by(category_name: "Loans")
 	end
 
 	def index
 		@categories = Category.all
 	end
 end
-
