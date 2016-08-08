@@ -23,7 +23,7 @@
         <th><%= n %></th>
         <% n += 1 %>
         <td><%= link_to s.user_consultant.full_name, consultant_session_path(s) %></td>
-        <td><%= link_to s.user.full_name, consultant_session_path(s) %></td>
+        <td><%= s.user.full_name %></td>
         <td><%= s.start_time %></td>
         <td><%= s.end_time %></td>
         <td><%= s.actual_end_time %></td>

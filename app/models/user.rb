@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :chat_rooms, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :consultants
+  has_many :consultant_sessions, foreign_key: "consultant_id"
   mount_uploader :avatar, AvatarUploader
 
   def self.from_omniauth(auth)
