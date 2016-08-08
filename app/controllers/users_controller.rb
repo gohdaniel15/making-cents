@@ -35,7 +35,6 @@ class UsersController < Clearance::UsersController
 	    profile_picture = user_params.delete(:avatar)
 
 	    Clearance.configuration.user_model.new(user_params).tap do |user|
-				byebug
 	      user.email = email
 	      user.password = password
 	      user.avatar = profile_picture
