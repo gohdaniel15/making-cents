@@ -1,5 +1,5 @@
 class UsersController < Clearance::UsersController
-	
+
 	def create
 	    @user = user_from_params
 	    if @user.save
@@ -37,7 +37,7 @@ class UsersController < Clearance::UsersController
 	    Clearance.configuration.user_model.new(user_params).tap do |user|
 	      user.email = email
 	      user.password = password
-	      user.avatar = avatar
+	      user.avatar = profile_picture
 	    end
 	end
 
