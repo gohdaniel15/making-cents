@@ -1,0 +1,26 @@
+<%= form_for @consultant_session do |form| %>
+
+  <div id="consultant_session" class="new-consultant-session">
+   
+    <div class="text-field">
+      <%= form.label :start_time %>
+      <%= form.datetime_select :start_time, :minute_step => 15 %>
+      <%= %>
+    </div>
+
+    <div class="text-field">
+      <%= form.label :end_time %>
+      <%= form.datetime_select :end_time, :minute_step => 15 %>
+    </div>
+
+    <div class="text-field">
+      <%= form.label :session_status %>
+      <%= form.text_field :session_active_inactive %>
+    </div>
+        
+    <div class="submit-field">
+      <%= form.submit %>
+    </div>
+  </div>
+<% end %>
+
