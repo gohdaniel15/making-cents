@@ -1,0 +1,2 @@
+module ConsultantSessionsHelper
+end
