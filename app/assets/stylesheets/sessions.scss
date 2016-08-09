@@ -2,16 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.btn.btn-primary-fb {
+/*button classes*/
+.btn-fb, .btn-google{
+	border: 1px solid black; 
+}
+
+.btn-fb {
 	background-color: #0E167C;
 }
 
-.btn.btn-primary-google {
+.btn-google {
 	background-color: #AF2828;
 }
 
-
-#clearance {
+.clearance {
 	text-align: center;
 }
 
