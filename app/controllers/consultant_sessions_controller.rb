@@ -17,7 +17,6 @@ class ConsultantSessionsController < ApplicationController
   end
   
   def create
-    byebug
     @consultant_session_default = current_user.consultant_sessions.new(listing_params)
     until @consultant_session_default.start_time == @consultant_session_default.end_time do
       @consultant_session = current_user.consultant_sessions.new(listing_params)
