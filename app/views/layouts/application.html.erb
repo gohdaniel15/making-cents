@@ -2,21 +2,16 @@
 <html>
 <head>
   <title>MakingCents</title>
-  <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-  <%= render "layouts/navbar.html.erb" %>
-  <% if signed_in? %>
-    <% if current_user.avatar.file.nil? %>
-      <%= image_tag("default profile picture.jpg") %>
-    <% else %>
-      <%= image_tag (current_user.avatar.url(:thumb)) %>
-    <% end %>
-  <% end %>
+  <%= render "navbar/navbar.html.erb" %>
 
   <div id="flash">
     <% flash.each do |key, value| %>

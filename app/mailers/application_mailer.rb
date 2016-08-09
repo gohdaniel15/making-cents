@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  #default from: 'from@example.com'
+  default from: 'from@example.com'
   layout 'mailer'
 
   # First, instantiate the Mailgun Client with your API key
@@ -14,4 +14,4 @@ class ApplicationMailer < ActionMailer::Base
 
   # Send your message through the client
   # mg_client.send_message ENV['DOMAIN'], message_params
-end
+# end

@@ -1,15 +1,15 @@
 class ConsultantsController < ApplicationController
 	before_action :require_login
 
-	def new 
+	def new
 		@consultant = Consultant.new
-	end 
+	end
 
 	def create
-		@user_id = :user_id 
-		@consultant = User.first.consultants.new(consultant_params)
+		@user_id = :user_id
+		@consultant = current_user.consultants.new(consultant_params)
 		if @consultant.save
-			redirect_to edit_consultant_path(current_user)
+			redirect_to edit_consultant_path(@consultant)
 		else
 			render :action => "new"
 		end
@@ -20,7 +20,7 @@ class ConsultantsController < ApplicationController
 	end
 
 	def index
-		@consultants = Consultant.all 
+		@consultants = Consultant.all
 	end
 
 	def edit
@@ -39,7 +39,7 @@ class ConsultantsController < ApplicationController
 			redirect_to :action => 'show', :id => @consultant
 		else
 			render :action => 'edit'
-	 	end	
+	 	end
 	end
 
    def delete

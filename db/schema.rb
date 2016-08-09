@@ -10,16 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805100816) do
+ActiveRecord::Schema.define(version: 20160808120018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.integer  "consultant_id"
     t.string   "category_name"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "category_consultants", force: :cascade do |t|
+    t.integer  "category_id"
+    t.integer  "consultant_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["category_id"], name: "index_category_consultants_on_category_id", using: :btree
+    t.index ["consultant_id"], name: "index_category_consultants_on_consultant_id", using: :btree
   end
 
   create_table "chat_rooms", force: :cascade do |t|
@@ -80,6 +88,8 @@ ActiveRecord::Schema.define(version: 20160805100816) do
     t.index ["remember_token"], name: "index_users_on_remember_token", using: :btree
   end
 
+  add_foreign_key "category_consultants", "categories"
+  add_foreign_key "category_consultants", "consultants"
   add_foreign_key "chat_rooms", "users"
   add_foreign_key "consultant_sessions", "consultants"
   add_foreign_key "consultant_sessions", "users"

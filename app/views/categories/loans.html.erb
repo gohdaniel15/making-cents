@@ -1,0 +1,15 @@
+<div class="container bodyWrapper">
+  <h2><%= @category.category_name %></h2>
+  <% @category.consultants.each do |c| %>
+    <div class="container consultantWrapper">
+      <p>
+        <%= c.user.name %>
+        <%= c.qualifications %>
+        <%= c.languages %>
+      </p>
+      <p>
+        <%= c.description %>
+      </p>
+    </div>
+  <% end %>
+</div>

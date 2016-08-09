@@ -1,4 +1,76 @@
 <h2>Categories available</h2>
-<% @categories.each do |c| %>
-	<a href="/categories/<%=c.id%>"><%= c.category_name %></a><br>
-<% end %>
+<div class="container-fluid text-center">
+<div class="row">
+    <div class="col-md-4">
+      <%= link_to loans_path do %>
+				<div class="thumbnail">
+		      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+		      <div class="caption">
+			      <h2>Loans<br>
+			      	<small>Description</small>
+			      </h2>
+		      </div>
+	      </div>
+			<% end %>
+    </div>
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+      <div class="caption">
+      <h2>Title<br>
+      <small>Description</small>
+      </h2>
+      </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+      <div class="caption">
+      <h2>Title<br>
+      <small>Description</small>
+      </h2>
+      </div>
+      </div>
+      </div>
+   </div>
+  </div><br>
+
+  <div class="container-fluid text-center">
+<div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail">
+      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+      <div class="caption">
+      <h2>Title<br>
+      <small>Description</small>
+      </h2>
+      </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+      <div class="caption">
+      <h2>Title<br>
+      <small>Description</small>
+      </h2>
+      </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+      <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+      <div class="caption">
+      <h2>Title<br>
+      <small>Description</small>
+      </h2>
+      </div>
+      </div>
+      </div>
+   </div>
+  </div>
