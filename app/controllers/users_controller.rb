@@ -3,11 +3,10 @@ class UsersController < Clearance::UsersController
 	def create
 	    @user = user_from_params
 	    if @user.save
-	      # ConfirmationMailer.confirmation_email(@user).deliver
+	      ConfirmationMailer.confirmation_email(@user).deliver
 	      sign_in @user
 	      redirect_back_or url_after_create
 	    else
-    	  byebug
 	      flash[:message] = 'Invalid email/password combination'
 	      render template: "users/new"
 	    end
