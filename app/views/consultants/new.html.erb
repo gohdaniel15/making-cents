@@ -1,11 +1,4 @@
-<h2>Apply to be a consultant</h2>
-
-  <%= form_for @consultant do |form| %>
-    <%= render partial: '/consultants/form', object: form %>
-
-    <div class="submit-field">
-      <%= form.submit %>
-    </div>
-
-  <% end %>
+<div class="container bodyWrapper">
+  <h2>Apply to be a consultant</h2>
+  <%= render partial: '/consultants/form'%>
 </div>

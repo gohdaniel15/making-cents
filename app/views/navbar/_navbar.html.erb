@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
       <% if signed_in? %>
-        <% if current_user.consultants.nil? %>
+        <% if current_user.consultants.empty? %>
           <li><%= link_to 'Become a consultant', new_consultant_path(current_user) %></li>
         <% else %>
           <li><%= link_to 'Dashboard', consultant_path(current_user) %></li>
