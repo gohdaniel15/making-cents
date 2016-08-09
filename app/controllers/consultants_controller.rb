@@ -11,7 +11,6 @@ class ConsultantsController < ApplicationController
 		@consultant = current_user.consultants.new(consultant_params)
 		if @consultant.save
 			@consultant.categories.create!(category_params)
-			byebug
 			redirect_to edit_consultant_path(@consultant)
 		else
 			render :action => "new"

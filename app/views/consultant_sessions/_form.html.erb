@@ -14,6 +14,11 @@
     </div>
 
     <div class="text-field">
+      <%= form.label 'Charge per 15 minutes' %>
+      <%= form.text_field :rate %>
+    </div>
+
+    <div class="text-field">
       <%= form.label :session_status %>
       <%= form.select(:session_active_inactive, [['Active', true], ['Inactive', false]]) %>
     </div>

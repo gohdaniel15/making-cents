@@ -33,30 +33,41 @@
    <%= @consultant.description %>
   </p>
 
-  <p>
-    <%= link_to 'Edit profile', edit_consultant_path(@consultant) %>
-  </p>
+  <% if current_user.id == @consultant.user.id %>
+    <p>
+      <%= link_to 'Edit profile', edit_consultant_path(@consultant) %>
+    </p>
 
-  <p>
-    <%= link_to 'Create a consultant session', new_consultant_session_path %>
-  </p>
+    <p>
+      <%= link_to 'Create a consultant session', new_consultant_session_path %>
+    </p>
+  <% end %>
 
   <div>
     <h3>Consultant Sessions:
-      <%= @consultant.consultant_sessions.count %>
+      <%= @consultant.user.consultant_sessions.count %>
     </h3>
-    <% @consultant.consultant_sessions.each do |s| %>
-      <div>
-        <p> Start time:
-          <%= s.start_time %>
-        </p>
-        <p> End time:
-          <%= s.end_time %>
-        </p>
-        <p> Listing Status:
-          <%= s.session_active_inactive %>
-        </p>
-      </div>
+    <%= form_tag do %>
+
+      <% @consultant.user.consultant_sessions.each do |s| %>
+        <div class="container sessionWrapper">
+          <p> Date:
+            <%= s.start_time.to_formatted_s(:short) %>
+          </p>
+          <p>Rates:
+            RM <%= s.rate %> per <%= (s.end_time - s.start_time) / 60 %> minutes
+          </p>
+          <p> Listing Status:
+            <% if s.session_active_inactive == true %>
+              Available
+            <% else %>
+              Reserved
+            <% end %>
+          </p>
+          <%= check_box_tag(s.id) %>
+        </div>
+      <% end %>
+      <%= submit_tag("Submit") %>
     <% end %>
   </div>
 </div>
