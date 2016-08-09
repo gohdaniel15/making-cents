@@ -1,12 +1,10 @@
 $(document).ready(function() {
-  debugger;
-  console.log('hello');
   $(window).on("scroll", function () {
-      if ($(this).scrollTop() > 100) {
-          $(".topNav").addClass("not-transparent");
+      if ($(this).scrollTop() > 50) {
+          $(".navbar").addClass("not-transparent");
       }
       else {
-          $("#header").removeClass("not-transparent");
+          $(".navbar").removeClass("not-transparent");
       }
   });
 });

@@ -8,14 +8,19 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Making Cents</a>
+      <%= link_to "Making Cents", root_path, html_options = {class: "navbar-brand"} %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
       <% if signed_in? %>
-        <li><%= link_to 'Become a consultant', new_consultant_path(current_user) %></li>
+        <% if current_user.consultants.nil? %>
+          <li><%= link_to 'Become a consultant', new_consultant_path(current_user) %></li>
+        <% else %>
+          <li><%= link_to 'Dashboard', consultant_path(current_user) %></li>
+        <% end %>
+
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %><span class="caret"></span></a>
           <ul class="dropdown-menu">

@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+	margin: 0;
+	padding: 0;
+}
+
 .landingPicture {
 	height: 650px;
 	background-image: url('sky-sun-freedom-orange.jpg');
@@ -19,5 +24,6 @@
 }
 
 .not-transparent {
-	background-color: white;
+	background-color: white !important;
+	z-index: 1000 !important;
 }

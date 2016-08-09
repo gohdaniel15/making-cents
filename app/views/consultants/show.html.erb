@@ -1,36 +1,62 @@
-<h2>Consultant profile</h2>
+<div class="container bodyWrapper">
+  <h2>Consultant profile</h2>
 
-<%= @consultant.user.avatar %>
+  <%= @consultant.user.avatar %>
 
-<p>
- <strong>Full name:</strong>
- <%= @consultant.user.name %>
-</p>
+  <p>
+   <strong>Full name:</strong>
+   <%= @consultant.user.name %>
+  </p>
 
-<p>
- <strong>Email:</strong>
- <%= @consultant.user.email %>
-</p>
+  <p>
+   <strong>Email:</strong>
+   <%= @consultant.user.email %>
+  </p>
 
-<p>
- <strong>Qualifications:</strong>
- <%= @consultant.qualifications %>
-</p>
+  <p>
+   <strong>Qualifications:</strong>
+   <%= @consultant.qualifications %>
+  </p>
 
-<p>
- <strong>Languages:</strong>
- <%= @consultant.languages %>
-</p>
+  <p>
+   <strong>Languages:</strong>
+   <%= @consultant.languages %>
+  </p>
 
-<p>
- <strong>Location</strong>
- <%= @consultant.location %>
-</p>
+  <p>
+   <strong>Location</strong>
+   <%= @consultant.location %>
+  </p>
 
-<p>
- <strong>Description</strong>
- <%= @consultant.description %>
-</p>
+  <p>
+   <strong>Description</strong>
+   <%= @consultant.description %>
+  </p>
 
-<p><%= link_to 'Edit profile', edit_consultant_path(@consultant) %>
-</p>
+  <p>
+    <%= link_to 'Edit profile', edit_consultant_path(@consultant) %>
+  </p>
+
+  <p>
+    <%= link_to 'Create a consultant session', new_consultant_session_path %>
+  </p>
+
+  <div>
+    <h3>Consultant Sessions:
+      <%= @consultant.consultant_sessions.count %>
+    </h3>
+    <% @consultant.consultant_sessions.each do |s| %>
+      <div>
+        <p> Start time:
+          <%= s.start_time %>
+        </p>
+        <p> End time:
+          <%= s.end_time %>
+        </p>
+        <p> Listing Status:
+          <%= s.session_active_inactive %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>
