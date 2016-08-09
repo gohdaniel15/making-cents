@@ -14,4 +14,4 @@ class ApplicationMailer < ActionMailer::Base
 
   # Send your message through the client
   # mg_client.send_message ENV['DOMAIN'], message_params
-# end
+end
