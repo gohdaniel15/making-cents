@@ -2,9 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.btn.btn-primary {
-	background-color: red;
+.btn.btn-primary-fb {
+	background-color: #0E167C;
 }
+
+.btn.btn-primary-google {
+	background-color: #AF2828;
+}
+
 
 #clearance {
 	text-align: center;
@@ -14,3 +19,6 @@
 	border: 2px solid !important;
 }
 
+.sessionWrapper {
+	border: 2px solid;
+}

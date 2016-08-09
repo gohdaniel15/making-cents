@@ -44,7 +44,9 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
 # Ann-Marie's gems
-
+group :development do
+  gem 'rails_real_favicon'
+end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
