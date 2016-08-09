@@ -18,14 +18,22 @@ class ConsultantSessionsController < ApplicationController
 
   def create
     @consultant_session_default = current_user.consultant_sessions.new(listing_params)
+    # save 1st one here
+
+    @consultant_session = current_user.consultant_sessions.new(listing_params)
+    @consultant_session.end_time = @consultant_session.start_time + (15*60)
+    @consultant_session.save
+    @consultant_session_default.start_time = @consultant_session.start_time + (15*60)
+    #start loop
     until @consultant_session_default.start_time == @consultant_session_default.end_time do
       @consultant_session = current_user.consultant_sessions.new(listing_params)
+      @consultant_session.start_time = @consultant_session_default.start_time
       @consultant_session.end_time = @consultant_session.start_time + (15*60)
       @consultant_session.save
       @consultant_session_default.start_time += (15*60)
     end
 
-    redirect_to @consultant_session
+    redirect_to consultant_path(current_user.consultants.last)
 
     # @consultantSession = current_user.consultantSession.new(listing_params)
     # number_of_slots = @consultantSession.end_time - @consultantSession.start_time)/(15*60)
@@ -61,7 +69,7 @@ class ConsultantSessionsController < ApplicationController
 
   private
   def listing_params #white list of permitted parameters only
-    params.require(:consultant_session).permit(:start_time, :end_time, :session_active_inactive, :consultant_id)
+    params.require(:consultant_session).permit(:start_time, :end_time, :session_active_inactive, :rate, :consultant_id)
   end
 
   def set_consultant_session
