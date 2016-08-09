@@ -32,4 +32,10 @@ Rails.application.routes.draw do
   #routes for categories
   resources :categories, only: [:show, :index]
   get "/loans" => "categories#loans", as: "loans"
+  get "/tax" => "categories#tax", as: "tax"
+  get "/investments" => "categories#investments", as: "investments"
+  get "/personal_finance" => "categories#personal_finance", as: "personal_finance"
+  get "/insurance" => "categories#insurance", as: "insurance"
+  get "/trading" => "categories#trading", as: "trading"
+
 end
