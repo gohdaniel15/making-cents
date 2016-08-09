@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # User sign up, sign in, and log in/log out
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
-  resources :users, controller: "users", only: [:create, :edit, :update] do
+  resources :users, controller: "users", only: [:create, :edit, :update, :show, :index] do
     resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]

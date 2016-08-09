@@ -1,0 +1,197 @@
+/* line 1, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/categories.scss */
+.bodyWrapper {
+  padding-top: 50px;
+}
+
+/* line 5, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/categories.scss */
+.consultantWrapper {
+  border: 2px solid;
+}
+/* line 5, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/home.scss */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 10, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/home.scss */
+.landingPicture {
+  height: 650px;
+  background-image: url("sky-sun-freedom-orange.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: -275px;
+  font-family: 'Roboto';
+}
+@media screen and (min-width: 768px) {
+  /* line 10, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/home.scss */
+  .landingPicture {
+    background-position: center;
+  }
+}
+
+/* line 22, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/home.scss */
+.headerTitle {
+  margin-top: 175px;
+}
+
+/* line 26, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/home.scss */
+.not-transparent {
+  background-color: white !important;
+  z-index: 1000 !important;
+}
+/* line 1, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/messages.scss */
+#messages {
+  max-height: 450px;
+  overflow-y: auto;
+}
+/* line 1, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/navbar.scss */
+.navbar {
+  margin-bottom: 0;
+  position: fixed;
+  width: 100%;
+  background-color: transparent;
+  color: #2D2D2D;
+  border-color: transparent;
+}
+
+/* line 10, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-brand {
+  color: #2D2D2D;
+}
+
+/* line 14, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/navbar.scss */
+.navbar-header {
+  color: #2D2D2D;
+}
+
+/* line 18, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/navbar.scss */
+body {
+  font-family: 'Roboto';
+  color: #2D2D2D;
+}
+/* line 1, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 9, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/scaffolds.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 33px;
+}
+
+/* line 16, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 22, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/scaffolds.scss */
+a {
+  color: #000;
+}
+/* line 25, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/scaffolds.scss */
+a:visited {
+  color: #666;
+}
+/* line 29, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/scaffolds.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 35, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/scaffolds.scss */
+th {
+  padding-bottom: 5px;
+}
+
+/* line 39, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/scaffolds.scss */
+td {
+  padding-bottom: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/* line 46, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/scaffolds.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 51, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 55, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 61, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 69, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 80, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* line 86, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/scaffolds.scss */
+label {
+  display: block;
+}
+/* line 5, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/sessions.scss */
+.btn.btn-primary {
+  background-color: red;
+}
+
+/* line 9, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/sessions.scss */
+#clearance {
+  text-align: center;
+}
+
+/* line 13, /media/sf_NEXT/tasks/making-cents-backup/app/assets/stylesheets/sessions.scss */
+.panel-default {
+  border: 2px solid !important;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
