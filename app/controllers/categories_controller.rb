@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 
 	def loans
-		@category = Category.find_by(category_name: "Loans")
+		@category = Category.includes(consultants: :user).where("category_name like ?", "Loans")
 	end
 
 	def index

@@ -3,12 +3,15 @@ class ConsultantsController < ApplicationController
 
 	def new
 		@consultant = Consultant.new
+		@category = @consultant.categories.new
 	end
 
 	def create
 		@user_id = :user_id
 		@consultant = current_user.consultants.new(consultant_params)
 		if @consultant.save
+			@consultant.categories.create!(category_params)
+			byebug
 			redirect_to edit_consultant_path(@consultant)
 		else
 			render :action => "new"
@@ -25,12 +28,12 @@ class ConsultantsController < ApplicationController
 
 	def edit
 		@consultant = Consultant.find(params[:id])
+		@category = @consultant.categories.new
 	end
 
 	def update
 		@consultant = Consultant.find(params[:id])
 		#	@consultant = Consultant.find_by(user_id: params[:user_id])?
-
 		if  @consultant.update_attributes(consultant_params)
 			@consultant.user.name = params[:consultant][:user][:name]
 			@consultant.description = params[:consultant][:description]
@@ -51,6 +54,10 @@ class ConsultantsController < ApplicationController
 		def consultant_params
 	   params.require(:consultant).permit(:qualifications, :languages, :location, :user_id)
 	   # params.require(:user).permit(:name, :email)
+		end
+
+		def category_params
+			params.require(:category).permit(:category_name)
 		end
 
 		# def updated_consultant_params
