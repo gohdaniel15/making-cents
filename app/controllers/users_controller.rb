@@ -7,6 +7,8 @@ class UsersController < Clearance::UsersController
 	      sign_in @user
 	      redirect_back_or url_after_create
 	    else
+    	  byebug
+	      flash[:message] = 'Invalid email/password combination'
 	      render template: "users/new"
 	    end
 	  end
@@ -37,6 +39,7 @@ class UsersController < Clearance::UsersController
 	    Clearance.configuration.user_model.new(user_params).tap do |user|
 	      user.email = email
 	      user.password = password
+	      user.birthday = birthday
 	      user.avatar = profile_picture
 	    end
 	end
