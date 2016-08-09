@@ -16,5 +16,4 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require cable
-//= require home
 //= require_tree .

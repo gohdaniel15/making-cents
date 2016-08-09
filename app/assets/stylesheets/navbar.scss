@@ -1,17 +1,21 @@
 .navbar {
-	margin-bottom: 0 !important;
-	position: fixed !important;
-	width: 100% !important;
-	background-color: transparent !important;
-	color: #2D2D2D !important;
-	border-color: transparent  !important;
+	margin-bottom: 0;
+	position: fixed;
+	width: 100%;
+	background-color: transparent;
+	color: #2D2D2D;
+	border-color: transparent;
+}
+
+.navbar-default .navbar-brand {
+    color: #2D2D2D;
 }
 
 .navbar-header {
-	color: #2D2D2D !important;
+	color: #2D2D2D;
 }
 
 body {
 	font-family: 'Roboto';
-	color: #2D2D2D !important;
+	color: #2D2D2D;
 }
