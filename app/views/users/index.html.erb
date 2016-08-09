@@ -1,0 +1,18 @@
+<h1>All Users</h1>
+
+<table>
+    <tr>
+        <th>No.</th>
+        <th>email</th>
+
+    <% User.all.each do |l| %>
+    <% n = 1 %>
+    <tr>
+        <th><%= n %></th>
+        <% n += 1 %>
+        <td><%= l.email %></td>
+        </td>
+    </tr>
+    <%end%>
+</table>
+
