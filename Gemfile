@@ -43,6 +43,8 @@ gem 'braintree'
 # Daniel's gems
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'sidekiq'
+gem 'redis-rails'
 
 # Ann-Marie's gems
 group :development do
