@@ -32,4 +32,9 @@ Rails.application.routes.draw do
   #routes for categories
   resources :categories, only: [:show, :index]
   get "/loans" => "categories#loans", as: "loans"
+  
+  resources :payments, only: [:new, :create] 
+  
+  post '/consultants/:consultant_id/book_session', to: "consultant_sessions#book", as: "session_booking"
+  
 end

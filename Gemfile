@@ -38,6 +38,7 @@ gem 'mailgun-ruby', '~> 1.1', require: 'mailgun'
 
 # Surya's gems
 gem 'fog'
+gem 'braintree'
 
 # Daniel's gems
 gem 'bootstrap-sass'
