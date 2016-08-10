@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   resources :consultant_sessions
 
   #routes for categories
-  resources :categories, only: [:show, :index]
+  resources :categories, only: [:new, :create, :show, :index]
   get "/loans" => "categories#loans", as: "loans"
   get "/tax" => "categories#tax", as: "tax"
   get "/investments" => "categories#investments", as: "investments"
