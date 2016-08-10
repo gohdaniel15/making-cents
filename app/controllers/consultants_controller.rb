@@ -2,6 +2,9 @@ class ConsultantsController < ApplicationController
 	before_action :require_login
 
 	def new
+		unless current_user.consultants.empty?
+			redirect_to consultant_path(current_user)
+		end
 		@consultant = Consultant.new
 		@category = @consultant.categories.new
 	end

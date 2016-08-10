@@ -1,83 +1,110 @@
-<div class="row">
-
-  <div class="col-md-3">
-    
-  </div>
-
-<div class="col-md-7">
-<div class="border">
- <div class="profile">
-   <h2>Consultant profile</h2>
-
-  <p>
-   <strong>Full name:</strong>
-   <%= @consultant.user.name %>
-  </p>
-
-  <p>
-   <strong>Email:</strong>
-   <%= @consultant.user.email %>
-  </p>
-
-  <p>
-   <strong>Qualifications:</strong>
-   <%= @consultant.qualifications %>
-  </p>
-
-  <p>
-   <strong>Languages:</strong>
-   <%= @consultant.languages %>
-  </p>
-
-  <p>
-   <strong>Location</strong>
-   <%= @consultant.location %>
-  </p>
-
-  <p>
-   <strong>Description</strong>
-   <%= @consultant.description %>
-  </p>
-
-  <% if current_user.id == @consultant.user.id %>
-    <p>
-      <%= link_to 'Edit profile', edit_consultant_path(@consultant) %>
-    </p>
-
-    <p>
-      <%= link_to 'Create a consultant session', new_consultant_session_path %>
-    </p>
-  <% end %>
-
-  <div>
-    <h3>Consultant Sessions:
-      <%= @consultant.user.consultant_sessions.count %>
-    </h3>
-    <%= form_tag session_booking_path(@consultant) do %>
-
-      <% @consultant.user.consultant_sessions.each do |s| %>
-        <div class="container sessionWrapper">
-          <p> Date:
-            <%= s.start_time.to_formatted_s(:short) %>
+<div class="bodyWrapper">
+  <div class="container-fluid">
+    <div class="profileWrapper">
+      <div class="alignText">
+        <p class="mediumText">
+          <strong><%= @consultant.user.name %></strong>
+        </p>
+        <% if current_user.id == @consultant.user.id %>
+          <p>
+            <%= link_to 'Edit profile', edit_consultant_path(@consultant) %>
           </p>
-          <p>Rates:
-            RM <%= s.rate %> per <%= (s.end_time - s.start_time) / 60 %> minutes
+        <% end %>
+      </div>
+      <br />
+      <br />
+      <div class="row">
+        <div class="col-sm-9">
+          <p class="smallText">
+           <strong>Qualifications:</strong>
+           <%= @consultant.qualifications %>
           </p>
-          <p> Listing Status:
-            <% if s.session_active_inactive == true %>
-              Available
-            <% else %>
-              Reserved
-            <% end %>
+
+          <p class="smallText">
+           <strong>Languages:</strong>
+           <%= @consultant.languages %>
           </p>
-          <%= check_box_tag "consult_sessions[#{s.id}]" %>
+
+          <p class="smallText">
+           <strong>Location</strong>
+           <%= @consultant.location %>
+          </p>
+
+          <p class="smallText">
+           <strong>Description</strong>
+           <%= @consultant.description %>
+          </p>
+        </div>
+
+        <div class="col-sm-3">
+          <%= image_tag(@consultant.user.avatar.square.url, class: 'profileThumb') if @consultant.user.avatar.square.url %>
+        </div>
+      </div>
+    </div>
+
+    <br />
+
+    <%= link_to user_path(@consultant.user) do %>
+      <div class="buttonWrapper alignText">
+        <br />
+        <p>
+          View Sessions
+        </p>
+      </div>
+    <% end %>
+
+    <br />
+
+    <% if current_user.id == @consultant.user.id %>
+      <%= link_to new_consultant_session_path do %>
+        <div class="buttonWrapper alignText">
+          <br />
+          <p>
+            Create a consultant session
+          </p>
         </div>
       <% end %>
-      <%= submit_tag("Submit") %>
+    <% end %>
+
+    <br />
+    <br />
+
+      <div class="longButtonWrapper alignText">
+        <br />
+        <p>
+          AVAILABLE SESSIONS
+        </p>
+      </div>
+  
+    <table class="table">
+      <thead class="thead-inverse">
+        <tr>
+          <th>#</th>
+          <th>Date</th>
+          <th>Day</th>
+          <th>Time</th>
+          <th>Cost</th>
+          <th>Select</th>
+        </tr>
+      </thead>
+      <tbody>
+      <%= form_tag session_booking_path(@consultant) do %>
+      <% count = 0 %>
+        <% @consultant.user.consultant_sessions.where(session_active_inactive: true).each do |s| %>
+          <tr>
+            <th scope="row"><%= count += 1 %></th>
+            <td><%= s.start_time.to_date %></td>
+            <td><%= s.start_time.to_date.wday %></td>
+            <td><%= s.start_time.time.to_formatted_s(:time) %></td>
+            <td><%= s.rate %></td>
+            <td><%= check_box_tag "consult_sessions[#{s.id}]" %></td>
+          </tr>
+        <% end %>
+          <tr>
+            <td colspan="6"><button type="submit" class="btn btn-primary pull-right">Submit</button></td>
+          </tr>
+        </tbody>
+      </table>
     <% end %>
   </div>
 </div>
-</div>
-</div>
-</div>
-

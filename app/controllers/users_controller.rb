@@ -13,7 +13,7 @@ before_action :set_user, only: [:show]
 	      render template: "users/new"
 	    end
 	  end
-    
+
   def show
 
   end
@@ -59,7 +59,7 @@ before_action :set_user, only: [:show]
 			edit_user_params
 		end
 	end
-  
+
    def set_user
      @user = User.find(params[:id])
   end
