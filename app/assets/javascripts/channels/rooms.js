@@ -6,27 +6,30 @@ jQuery(document).on('turbolinks:load', function() {
       return messages.scrollTop(messages.prop("scrollHeight"));
     };
     messages_to_bottom();
-    App.global_chat = App.cable.subscriptions.create({
-      channel: "ChatRoomsChannel",
-      chat_room_id: messages.data('chat-room-id')
-    }, {
-      connected: function() {
-        return console.log("connected to chat room");
-      },
 
-      disconnected: function() {},
+    if ($("meta[name='current-user']").length > 0) {
+      App.global_chat = App.cable.subscriptions.create({
+        channel: "ChatRoomsChannel",
+        chat_room_id: messages.data('chat-room-id')
+      }, {
+        connected: function() {
+          return console.log("connected to chat room");
+        },
 
-      received: function(data) {
-        messages.append(data['message']);
-        return messages_to_bottom();
-      },
-      send_message: function(message, chat_room_id) {
-        return this.perform('send_message', {
-          message: message,
-          chat_room_id: chat_room_id
-        });
-      }
-    });
+        disconnected: function() {},
+
+        received: function(data) {
+          messages.append(data['message']);
+          return messages_to_bottom();
+        },
+        send_message: function(message, chat_room_id) {
+          return this.perform('send_message', {
+            message: message,
+            chat_room_id: chat_room_id
+          });
+        }
+      });
+  }
   }
   return $('#new_message').submit(function(e) {
     var $this, textarea;
