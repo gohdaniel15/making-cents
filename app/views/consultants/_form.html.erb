@@ -1,23 +1,22 @@
+
 <%= form_for @consultant do |form| %>
   <div class="text-field">
-    <%= form.label :qualifications%>
-    <%= form.text_field :qualifications, type: 'qualifications' %>
-  </div>
+    <%= form.text_field :qualifications, placeholder: 'Enter Your Qualifications' %>
+  </div><br>
 
   <div class="text-field">
-    <%= form.label :languages%>
-    <%= form.text_field :languages, type: 'languages' %>
-  </div>
+    <%= form.text_field :languages, placeholder: 'Enter Your Languages' %>
+  </div><br>
 
   <div class="text-field">
-    <%= form.label :location%>
-    <%= form.text_field :location, type: 'location' %>
-  </div>
+    <%= form.text_field :location, placeholder: 'Enter Your Location' %>
+  </div><br>
 
+  
   <%= form_for @category do |form| %>
     <div class="text-field">
       <%= form.label "Field of expertise"%>
-      <%= form.select(:category_name, ['Loans']) %>
+      <%= form.select(:category_name, ['Loans', 'Tax', 'Investments', 'Personal Finance', 'Insurance', 'Trading']) %>
     </div>
 
   <div class="submit-field">
@@ -25,3 +24,5 @@
   </div>
   <% end %>
 <% end %>
+
+

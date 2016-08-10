@@ -1,36 +1,49 @@
+<div class="row">
+<div class="border">
   <%= form_for @consultant do |form| %>
+		
+		<%= form.fields_for @consultant.user do |form_fields| %>
+			Name: <%= form_fields.text_field :name %>
+		<% end %>
 
-  	<%= form.fields_for @consultant.user do |form_fields| %>
-  	Name: <%= form_fields.text_field :name %>
-  	 <% end %>
+	  <div class="col-md-8">
+	    <h2 class="a">Edit Profile</h2>
 
-		<div class="text-field">
-		  <%= form.label :qualifications%>
-		  <%= form.text_field :qualifications, type: 'qualifications' %>
+			<div class="text-field">
+			  <label for="qualifications">Qualifications:</label>
+			  <%= form.text_field :qualifications, placeholder: "Enter Your Qualifications" %>
+			</div><br>
+
+			<div class="text-field">
+			<label for="languages">Languages:</label>
+			  <%= form.text_field :languages, placeholder: 'Enter Your Languages' %>
+			</div><br>
+
+
+			<div class="text-field">
+			<label for="location">Location:</label>
+			  <%= form.text_field :location, placeholder: 'Enter Your Location' %>
+			</div><br>
+
+			<div class="text-field">
+			<label for="description">Description:</label>
+			  <%= form.text_field :description, placeholder: 'Enter Your Description' %>
+			</div><br>
+
+			
+
+		  <%= form.label "Upload a profile picture" %>
+			<div class="file-field ">
+		 		<center> 
+		  		<%= form.file_field :profile_picture %>
+				</center>
+			</div><br>
+
+			<div class="submit-field">
+		      <%= form.submit %>
+		  </div>
 		</div>
 
-		<div class="text-field">
-		  <%= form.label :languages%>
-		  <%= form.text_field :languages, type: 'languages' %>
-		</div>
-
-
-		<div class="text-field">
-		  <%= form.label :location%>
-		  <%= form.text_field :location, type: 'location' %>
-		</div>
-
-		<div class="text-field">
-		  <%= form.label :description%>
-		  <%= form.text_field :description, type: 'description' %>
-		</div>
-
-	<div class="file-field">
-	  <%= form.label "Upload a profile picture" %>
-	  <%= form.file_field :profile_picture %>
+	<% end %>
 	</div>
-
-	<div class="submit-field">
-      <%= form.submit %>
-    </div>
-<% end %>
+</div>
