@@ -37,4 +37,10 @@ Rails.application.routes.draw do
   
   post '/consultants/:consultant_id/book_session', to: "consultant_sessions#book", as: "session_booking"
   
+  get "/tax" => "categories#tax", as: "tax"
+  get "/investments" => "categories#investments", as: "investments"
+  get "/personal_finance" => "categories#personal_finance", as: "personal_finance"
+  get "/insurance" => "categories#insurance", as: "insurance"
+  get "/trading" => "categories#trading", as: "trading"
+
 end

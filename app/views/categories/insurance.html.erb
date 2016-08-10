@@ -1,0 +1,19 @@
+<div class="container bodyWrapper">
+  <h2><%= @category.first.category_name %></h2>
+  <% @category.each do |category| %>
+    <% category.consultants.all.each do |c|  %>
+      <div class="container consultantWrapper">
+        <p>
+          <%= link_to consultant_path(Consultant.find(c.id)) do %>
+            <%= c.user.name %>
+          <% end %>
+          <%= c.qualifications %>
+          <%= c.languages %>
+        </p>
+        <p>
+          <%= c.description %>
+        </p>
+      </div>
+    <% end %>
+  <% end %>
+</div>

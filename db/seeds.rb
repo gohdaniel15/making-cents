@@ -11,9 +11,10 @@ categories_list = [
   [ "Personal Finance"],
   [ "Insurance"],
   [ "Taxes"],
-  [ "Trading"]
+  [ "Trading"],
+  [ "Loans"]
 ]
 
 categories_list.each do |category_name|
-  Category.create( category_name: category_name,)
+  Category.create( category_name: category_name)
 end
