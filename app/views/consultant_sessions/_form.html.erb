@@ -1,3 +1,5 @@
+<div class="container-fluid text-center bodyWrapper">
+<div class="time">
 <%= form_for @consultant_session do |form| %>
 
   <div id="consultant_session" class="new-consultant-session">
@@ -6,25 +8,27 @@
       <%= form.label :start_time %>
       <%= form.datetime_select :start_time, :minute_step => 15 %>
       <%= %>
-    </div>
+    </div><br>
 
     <div class="text-field">
       <%= form.label :end_time %>
       <%= form.datetime_select :end_time, :minute_step => 15 %>
-    </div>
+    </div><br>
 
     <div class="text-field">
       <%= form.label 'Charge per 15 minutes' %>
       <%= form.text_field :rate %>
-    </div>
+    </div><br>
 
     <div class="text-field">
       <%= form.label :session_status %>
       <%= form.select(:session_active_inactive, [['Active', true], ['Inactive', false]]) %>
-    </div>
+    </div><br>
 
     <div class="submit-field">
       <%= form.submit %>
     </div>
   </div>
 <% end %>
+</div>
+</div>
