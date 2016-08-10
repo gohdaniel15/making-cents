@@ -1,2 +1,4 @@
 <%= @user.email%>
-<%= image_tag (@user.avatar.large.url) if @user.avatar %>
+<%= image_tag (@user.avatar.large.url) if @user.avatar.large.url %>
+
+<%= link_to "edit me", edit_user_path(@user) %>
