@@ -19,7 +19,6 @@ class ConsultantSessionsController < ApplicationController
   def create
     @consultant_session_default = current_user.consultant_sessions.new(listing_params)
     # save 1st one here
-
     @consultant_session = current_user.consultant_sessions.new(listing_params)
     @consultant_session.end_time = @consultant_session.start_time + (15*60)
     @consultant_session.save
@@ -66,6 +65,18 @@ class ConsultantSessionsController < ApplicationController
       # redirect_to consultant_sessions_path
     # end
   # end
+  
+  def book
+    params[:consult_sessions].keys.each do |id|
+      @consultant_session = ConsultantSession.find(id)
+      @consultant_session.update(user_id: current_user.id, session_active_inactive: false)
+    end
+    
+  redirect_to root_path
+
+  #add user_id to consultant_session
+  # disable session marked
+  end
 
   private
   def listing_params #white list of permitted parameters only

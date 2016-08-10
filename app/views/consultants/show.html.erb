@@ -47,7 +47,7 @@
     <h3>Consultant Sessions:
       <%= @consultant.user.consultant_sessions.count %>
     </h3>
-    <%= form_tag do %>
+    <%= form_tag session_booking_path(@consultant) do %>
 
       <% @consultant.user.consultant_sessions.each do |s| %>
         <div class="container sessionWrapper">
@@ -64,7 +64,7 @@
               Reserved
             <% end %>
           </p>
-          <%= check_box_tag(s.id) %>
+          <%= check_box_tag "consult_sessions[#{s.id}]" %>
         </div>
       <% end %>
       <%= submit_tag("Submit") %>
