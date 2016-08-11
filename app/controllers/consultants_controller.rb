@@ -3,7 +3,7 @@ class ConsultantsController < ApplicationController
 
 	def new
 		unless current_user.consultants.empty?
-			redirect_to consultant_path(current_user.consultant)
+			redirect_to consultant_path(current_user.consultants.last)
 		end
 		@consultant = Consultant.new
 		@category = @consultant.categories.new
