@@ -4,21 +4,26 @@
 
   <div id="consultant_session" class="new-consultant-session">
 
-    <div class="text-field">
+    <div class="form-group">
       <%= form.label :start_time %>
-      <%= form.datetime_select :start_time, :minute_step => 15 %>
+      <%= form.datetime_select :start_time, :minute_step => 15, class: "form-control" %>
       <%= %>
     </div><br>
 
-    <div class="text-field">
+    <div class="form-group">
       <%= form.label :end_time %>
-      <%= form.datetime_select :end_time, :minute_step => 15 %>
+      <%= form.datetime_select :end_time, class: "form-control", :minute_step => 15 %>
     </div><br>
 
-    <div class="text-field">
+    <div class="form-group">
       <%= form.label 'Charge per 15 minutes' %>
-      <%= form.text_field :rate %>
-    </div><br>
+      <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+      <div class="input-group">
+        <div class="input-group-addon">RM</div>
+          <%= form.text_field :rate, class: "form-control", placeholder: "Amount" %>
+        <div class="input-group-addon">.00</div>
+      </div>
+    </div>
 
     <div class="text-field">
       <%= form.label :session_status %>
