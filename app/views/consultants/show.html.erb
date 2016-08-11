@@ -57,6 +57,7 @@
 
       <% @consultant.user.consultant_sessions.each do |s| %>
         <div class="container sessionWrapper">
+          <p><%= link_to_unless s.video_session_id.nil?, 'Start Video Session', consultant_session_video_path %></p>
           <p> Date:
             <%= s.start_time.to_formatted_s(:short) %>
           </p>
@@ -64,7 +65,7 @@
             RM <%= s.rate %> per <%= (s.end_time - s.start_time) / 60 %> minutes
           </p>
           <p> Listing Status:
-            <% if s.session_active_inactive == true %>
+            <% if s.session_active_inactive %>
               Available
             <% else %>
               Reserved

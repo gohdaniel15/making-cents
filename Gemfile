@@ -27,6 +27,8 @@ gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'opentok'
+
 # Shalina's gems
 gem "clearance"
 gem "omniauth-google-oauth2", "~> 0.2.1"

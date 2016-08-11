@@ -1,6 +1,7 @@
 class ConsultantSessionsController < ApplicationController
   before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_consultant_session, only: [:destroy, :show, :edit, :update]
+  before_action :config_opentok, only: [:create]
 
   def index
     @consultant_sessions = ConsultantSession.all
@@ -34,6 +35,12 @@ class ConsultantSessionsController < ApplicationController
       @consultant_session = current_user.consultant_sessions.new(listing_params)
       @consultant_session.start_time = @consultant_session_default.start_time
       @consultant_session.end_time = @consultant_session.start_time + (15*60)
+
+      # video start
+      session = @opentok.create_session
+      @consultant_session.video_session_id = session.session_id
+      # video end
+
       @consultant_session.save
       @consultant_session_default.start_time += (15*60)
     end
@@ -85,7 +92,17 @@ class ConsultantSessionsController < ApplicationController
   # disable session marked
   end
 
+  def video
+  end
+
   private
+  def config_opentok
+    @opentok ||= OpenTok::OpenTokSDK.new(ENV['VIDEO_API_KEY'], ENV['VIDEO_SECRET_TOKEN'])
+    # if @opentok.nil?
+    #   @opentok = OpenTok::OpenTokSDK.new {API_KEY}, {API_SECRET}
+    # end
+  end
+
   def listing_params #white list of permitted parameters only
     params.require(:consultant_session).permit(:start_time, :end_time, :session_active_inactive, :rate, :consultant_id)
   end

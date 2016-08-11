@@ -27,7 +27,11 @@ Rails.application.routes.draw do
   resources :consultants
 
   # routes for consultant sessions
-  resources :consultant_sessions
+  resources :consultant_sessions do
+    member do
+      get '/video' => 'consultant_sessions#video', as: 'consultant_session_video'
+    end
+  end
 
   #routes for categories
   resources :categories, only: [:show, :index]
