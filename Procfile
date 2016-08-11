@@ -1,4 +1,4 @@
-web: bundle exec puma
-worker: bundle exec sidekiq
 
-heroku config:set REDIS_PROVIDER=REDISTOGO_URL
+web: bundle exec rails server -p $PORT
+redis: redis-server
+sidekiq: bundle exec sidekiq
