@@ -1,25 +1,45 @@
-<div class="container-fluid">
-<div class="row">
-<%= render "/categories/sidebar" %>
-  <div class="col-sm-10">
-    <h2><%= @category.first.category_name %></h2>
-    <% @category.each do |category| %>
-      <% category.consultants.all.each do |c|  %>
-        <div class="container-fluid consultantWrapper">
-          <p>
-            <%= link_to consultant_path(Consultant.find(c.id)) do %>
-              <%= c.user.name %>
+<div class = "bodyWrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <%= render "/categories/sidebar" %>
+        <div class="col-sm-10">
+
+          <div class="jumbotron categoryHeader">
+            <p><strong>MEET OUR LOAN EXPERTS!</strong></p>
+          </div>
+
+          <% @category.each do |category| %>
+            <% category.consultants.all.each do |c|  %>
+              <%= link_to consultant_path(Consultant.find(c.id)) do %>
+                <div class="container-fluid consultantWrapper">
+                  <div class="col-sm-3">
+                    <br />
+                    <%= image_tag(c.user.avatar.square.url, class: 'profileThumb') if c.user.avatar.square.url %>
+                  </div>
+                  <div class="col-sm-7">
+                    <br />
+                    <p class="mediumText">
+                      <strong><%= c.user.name %></strong>
+                    </p>
+                    <br />
+                    <p class="extrasmallText">
+                      <strong>QUALIFICATIONS: </strong><%= c.qualifications %>
+                    </p>
+                    <p class="extrasmallText">
+                      <strong>LANGUAGES SPOKEN: </strong><%= c.languages %>
+                    </p>
+                    <p class="extrasmallText">
+                      <strong>WORKS AT: </strong>NEXT Financial Services
+                    </p>
+                    <p>
+                      <%= c.description %>
+                    </p>
+                  </div>
+                </div>
+              <% end %>
             <% end %>
-            <%= c.qualifications %>
-            <%= c.languages %>
-          </p>
-          <p>
-            <%= c.description %>
-          </p>
-        </div>
-      <% end %>
-    <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
-</div>
-

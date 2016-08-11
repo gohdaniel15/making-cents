@@ -5,64 +5,109 @@
 body {
 	margin: 0;
 	padding: 0;
-	font-family: 'Roboto';
-   color: white;
+	font-family: 'Roboto'!important;
+  background-color: #ECECEA;
 }
 
-.landingPicture {
-	height: 650px;
-	background-image: url('sky-sun-freedom-orange.jpg');
-	background-repeat: no-repeat;
+.col-sm-6 {
+	padding: 0;
+}
+
+.wantToAdvice {
+	height: 600px;
+	width: 100%;
+	background-image: url('/assets/givingadvice.jpg');
 	background-size: cover;
-	/*background-position-x: -275px;*/
-	background-attachment: scroll;
-	background-position: center center;
-   -webkit-background-size: cover;
-   -moz-background-size: cover;
-   background-size: cover;
-   -o-background-size: cover;
+	background-repeat: no-repeat;
+	text-align: center;
+	opacity: 0.75;
 }
 
-.intro-lead-in {
-  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-style: italic;
-  font-size: 22px;
-  line-height: 22px;
-  margin-bottom: 25px;
+.wantToAdvice:hover {
+	opacity: 0.5;
 }
 
-.intro-heading {
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 50px;
-  line-height: 50px;
-  margin-bottom: 25px;
+.wantAdvice {
+	height: 600px;
+	width: 100%;
+	background-image: url('/assets/lookingfor.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-align: center;
+	opacity: 0.75;
 }
 
-/*@media (min-width: 768px) {
-  header .intro-lead-in {
-    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-style: italic;
-    font-size: 40px;
-    line-height: 40px;
-    margin-bottom: 25px;
-  }
-  header .intro-heading {
-    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 75px;
-    line-height: 75px;
-    margin-bottom: 50px;
-  }
-  .landingPicture {
-  		background-position: center;
-  }
+.wantAdvice:hover {
+	opacity: 0.5;
 }
-*/
 
+.extrasmallText {
+	font-family: 'Helvetica Neue';
+	font-size: 15px;
+}
+
+.smallText {
+	font-family: 'Helvetica Neue';
+	font-size: 20px;
+	line-height: 25px;
+}
+
+.smallWhiteText {
+	font-family: 'Helvetica Neue';
+	font-size: 20px;
+	color: #ECECEA;
+}
+
+.mediumText {
+	font-family: 'Helvetica Neue';
+	font-size: 30px;
+}
+
+.largeText {
+	font-family: 'Helvetica Neue';
+	font-size: 45px;
+}
+
+.alignText {
+	text-align: center;
+}
+
+.pushUp {
+	width: 100%;
+	text-align: center;
+	position: relative;
+	top: -350px;
+	left: 40px;
+}
+
+
+// landing banner
+.landingBanner {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	height: 350px;
+	background-color: #ECECEA;
+}
+
+// page footer
+.pageFooter {
+	height: 350px;
+	background-color: #3e4141;
+
+}
+
+// other stuff
 .not-transparent {
-	background-color: white !important;
+	background-color: rgba(255, 255, 255, 0.87) !important;
 	z-index: 1000 !important;
+}
+
+.blur-page {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0,0,0,0.75);
+  z-index: 10;
 }

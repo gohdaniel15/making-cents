@@ -1,78 +1,68 @@
-<h2>Categories available</h2>
 <div class="container-fluid text-center">
-<div class="row">
-    <div class="col-md-4">
+  <p class="mediumText"><strong>I want advice for...</strong></p>
+  <br />
+  <br />
+  <div class="row">
+    <div class="col-sm-4">
       <%= link_to loans_path do %>
-				 <div class="thumbnail">
-          <div class="categoryBox">
-          <div class="caption">
-			      <h2>Loans</h2>
-		      </div>
-	      </div>
-			<% end %>
-    </div>
+        <div class="categoryBox loans">
+          <div class="mediumText">
+            <p><strong>LOANS</strong></p>
+          </div>
+        </div>
+        <% end %>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-sm-4">
       <%= link_to tax_path do %>
-         <div class="thumbnail">
-        <div class="categoryBox">
-          <div class="caption">
-            <h2>Tax</h2>
+        <div class="categoryBox tax">
+          <div class="mediumText">
+            <p><strong>TAX</strong></p>
           </div>
         </div>
-      <% end %>
-    </div>
+        <% end %>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-sm-4">
       <%= link_to investments_path do %>
-         <div class="thumbnail">
-        <div class="categoryBox">
-          <div class="caption">
-            <h2>Investments</h2>
+        <div class="categoryBox investments">
+          <div class="mediumText">
+            <p><strong>INVESTMENTS</strong></p>
           </div>
         </div>
-      <% end %>
-    </div>
-  </div><br>
-</div>
-
-  <div class="container-fluid text-center">
-<div class="row">
-    <div class="col-md-4">
-      <%= link_to personal_finance_path do %>
-        <div class="thumbnail">
-        <div class="categoryBox">
-          <div class="caption">
-            <h2>Personal Finance</h2>
-          </div>
-        </div>
-        </div>
-      <% end %>
-    </div>
-
-    <div class="col-md-4">
-      <%= link_to insurance_path do %>
-         <div class="thumbnail">
-        <div class="categoryBox">
-          <div class="caption">
-            <h2>Insurance</h2>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    </div>
-
-    <div class="col-md-4">
-      <%= link_to trading_path do %>
-         <div class="thumbnail">
-        <div class="categoryBox">
-          <div class="caption">
-            <h2>Trading</h2>
-          </div>
-        </div>
-      <% end %>
+        <% end %>
     </div>
   </div>
-  </div>
+<br />
+    <div class="row">
+      <div class="col-sm-4">
+        <%= link_to personal_finance_path do %>
+          <div class="categoryBox personalFinance">
+            <div class="mediumText">
+              <p><strong>PERSONAL</strong></p>
+              <p><strong>FINANCE</strong></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="col-sm-4">
+        <%= link_to insurance_path do %>
+          <div class="categoryBox insurance">
+            <div class="mediumText">
+              <p><strong>INSURANCE</strong></p>
+            </div>
+          </div>
+          <% end %>
+      </div>
+
+      <div class="col-sm-4">
+        <%= link_to trading_path do %>
+          <div class="categoryBox trading">
+            <div class="mediumText">
+              <p><strong>TRADING</strong></p>
+            </div>
+          </div>
+          <% end %>
+        </div>
+    </div>

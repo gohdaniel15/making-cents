@@ -1,0 +1,17 @@
+{
+	"name": "MakingCents",
+	"icons": [
+		{
+			"src": "/assets/favicon/android-chrome-192x192-724ebf8dcdec580885caffc0a84ef82ccd0653c882a43a00fd536d16d2e8cef0.png",
+			"sizes": "192x192",
+			"type": "image\/png"
+		},
+		{
+			"src": "/assets/favicon/android-chrome-512x512-878b2806b92c921716bd6ba7b446db1225eba85c18f7e37eed59a1a1a1dbfc92.png",
+			"sizes": "512x512",
+			"type": "image\/png"
+		}
+	],
+	"theme_color": "#ffffff",
+	"display": "standalone"
+}
