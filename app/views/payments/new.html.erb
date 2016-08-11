@@ -2,36 +2,36 @@
 
 
 <%= form_for :payment, url: payments_path do |f| %>
-  <div class="field">
-    <%= f.label :total_cost %><br>
-    <%= @total_cost %><br>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :consult_sessions, value: @consult_sessions %><br>
-  </div>
-    <div class="field">
-    <%= f.hidden_field :total_cost, value: @total_cost %><br>
-  </div>
-   <div class="field">
-    <div id="dropin"></div>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+ <div class="field">
+   <%= f.label :total_cost %><br>
+   <%= @total_cost %><br>
+ </div>
+ <div class="field">
+   <%= f.hidden_field :consult_sessions, value: @consult_sessions, multiple: true %><br>
+ </div>
+   <div class="field">
+   <%= f.hidden_field :total_cost, value: @total_cost %><br>
+ </div>
+  <div class="field">
+   <div id="dropin"></div>
+ </div>
+ <div class="actions">
+   <%= f.submit %>
+ </div>
 
 <% end %>
 
 <script type="text/javascript">
-  function setupBT() {
-    braintree.setup("<%= @client_token %>", 'dropin', {
-      container: 'dropin'
-    });
-  }
+ function setupBT() {
+   braintree.setup("<%= @client_token %>", 'dropin', {
+     container: 'dropin'
+   });
+ }
 
-  if (window.addEventListener)
-    window.addEventListener("load", setupBT, false);
-  else if (window.attachEvent)
-    window.attachEvent("onload", setupBT);
-  else window.onload = setupBT;
+ if (window.addEventListener)
+   window.addEventListener("load", setupBT, false);
+ else if (window.attachEvent)
+   window.attachEvent("onload", setupBT);
+ else window.onload = setupBT;
 
 </script>
