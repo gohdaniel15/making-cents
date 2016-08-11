@@ -42,11 +42,13 @@ ActiveRecord::Schema.define(version: 20160811023851) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.boolean  "session_active_inactive"
+    t.integer  "consultant_id"
     t.integer  "user_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "rate",                    null: false
     t.string   "video_sessions_id"
+    t.index ["consultant_id"], name: "index_consultant_sessions_on_consultant_id", using: :btree
     t.index ["user_id"], name: "index_consultant_sessions_on_user_id", using: :btree
   end
 

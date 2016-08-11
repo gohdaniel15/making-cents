@@ -52,7 +52,7 @@
       </thead>
       <tbody>
       <% count = 0 %>
-        <% @user.consultant_sessions.where(user_id: @user.id).each do |s| %>
+        <% @user.consulting_sessions.each do |s| %>
           <tr>
             <th scope="row"><%= count += 1 %></th>
             <td><%= s.start_time.to_date %></td>

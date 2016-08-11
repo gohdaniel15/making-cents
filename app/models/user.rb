@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :consultants
   has_many :consultant_sessions, foreign_key: "consultant_id"
+  has_many :consulting_sessions, class_name: "ConsultantSession", foreign_key: "user_id"
   mount_uploader :avatar, AvatarUploader
 
   def self.from_omniauth(auth)
