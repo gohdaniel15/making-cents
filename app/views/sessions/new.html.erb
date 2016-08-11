@@ -1,28 +1,19 @@
- <div id="clearance" class="sign-in">
-	<div class="container">
-		 <div class="panel panel-default">
-			<div class="panel-body">
-				<div class="row">
-					<h2><%= t(".title") %></h2>
-					<%= render partial: '/sessions/form' %>
-				</div>
-				
+<div class="bodyWrapper">
+  <div class="container-fluid alignText">
+    <p class="mediumText">
+      <strong>Sign In</strong>
+    </p>
 
-				<div class="row">
-					<%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class: "btn btn-primary-google" %>
-					<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", class:"btn btn-primary-fb" %>
-			    </div>
+    <%= render partial: '/sessions/form' %>
 
-	
-				<%if Clearance.configuration.allow_sign_up? %>
-					<p>Haven't got an account yet?
-				  	<%= link_to t(".sign_up"), sign_up_path %> with us
-					</p>
-				<% end %>
-			</div>
-		</div>
-	</div>
-</div> 
+      <button id="sign_in" class="btn googleButton"><i class="fa fa-google" aria-hidden="true"></i>  <%= link_to "Sign in with Google", "/auth/google_oauth2" %></button>
+      <button id="sign_in" class="btn facebookButton"><i class="fa fa-facebook" aria-hidden="true"></i>  <%= link_to "Sign in with Facebook", "/auth/facebook" %></button>
 
+    <%if Clearance.configuration.allow_sign_up? %>
+      <p>Haven't got an account yet?
+        <%= link_to "Sign up", sign_up_path %> with us
+      </p>
+    <% end %>
 
-
+  </div>
+</div>

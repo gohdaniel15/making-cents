@@ -1,16 +1,16 @@
 development:
-  adapter: async
+  adapter: redis
 
 test:
   adapter: async
 
-# production:
-#   adapter: redis
-#   url: <%= ENV['REDIS_URL'] %>
-
-local: &local
-  :url: redis://localhost:6379
-  :host: localhost
-  :port: 6379
-  :timeout: 1
-  :inline: true
+production:
+  adapter: redis
+  url: <%= ENV['REDISTOGO_URL'] %>
+#
+# local: &local
+#   :url: redis://localhost:6379
+#   :host: localhost
+#   :port: 6379
+#   :timeout: 1
+#   :inline: true

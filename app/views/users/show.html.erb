@@ -1,4 +1,68 @@
-<%= @user.email%>
-<%= image_tag (@user.avatar.large.url) if @user.avatar.large.url %>
+<div class="bodyWrapper">
+  <div class="container-fluid">
+    <div class="profileWrapper">
+      <div class="alignText">
+        <p class="mediumText">
+          <strong><%= @user.name %></strong>
+        </p>
+        <% if current_user.id == @user.id %>
+          <p>
+            <%= link_to 'Edit profile', edit_user_path(@user) %>
+          </p>
+        <% end %>
+      </div>
+      <br />
+      <br />
+      <div class="row">
+        <div class="col-sm-9">
+          <p class="smallText">
+           <strong>Email:</strong>
+           <%= @user.email %>
+          </p>
 
-<%= link_to "edit me", edit_user_path(@user) %>
+          <!-- Add user languages and locations. -->
+
+        </div>
+
+        <div class="col-sm-3">
+          <%= image_tag(@user.avatar.square.url, class: 'profileThumb') if @user.avatar.square.url %>
+        </div>
+      </div>
+    </div>
+
+    <br />
+
+    <div class="longButtonWrapper alignText">
+      <br />
+      <p>
+        RESERVED SESSIONS
+      </p>
+    </div>
+
+    <table class="table">
+      <thead class="thead-inverse">
+        <tr>
+          <th>#</th>
+          <th>Date</th>
+          <th>Day</th>
+          <th>Time</th>
+          <th>Cost</th>
+          <th>Chat Link</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% count = 0 %>
+        <% @user.consultant_sessions.where(user_id: @user.id).each do |s| %>
+          <tr>
+            <th scope="row"><%= count += 1 %></th>
+            <td><%= s.start_time.to_date %></td>
+            <td><%= s.start_time.to_date.wday %></td>
+            <td><%= s.start_time.time.to_formatted_s(:time) %></td>
+            <td><%= s.rate %></td>
+            <td>link</td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+  </div>
+</div>

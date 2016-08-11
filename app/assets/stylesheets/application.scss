@@ -14,5 +14,7 @@
  *= require_self
  */
 
-// @import "bootstrap-sprockets"
-// @import "bootstrap"
+@font-face {
+  font-family: "Appfont";
+  src: url(/assets/appfont.tff) format("truetype");
+}

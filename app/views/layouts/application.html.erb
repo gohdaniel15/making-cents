@@ -5,6 +5,8 @@
   <title>MakingCents</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <script src="https://use.fontawesome.com/5760e317e8.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= csrf_meta_tags %>
@@ -19,13 +21,41 @@
 <body>
   <%= render "navbar/navbar.html.erb" %>
 
+    <div class="blur-page"></div>
+
+    <div class='container-fluid signinBox'>
+      <div class="bodyWrapper">
+        <div class="container-fluid alignText">
+          <p class="mediumText">
+            <strong>Sign In</strong>
+          </p>
+
+          <%= render partial: '/sessions/form' %>
+
+            <button id="sign_in" class="btn googleButton"><i class="fa fa-google" aria-hidden="true"></i>  <%= link_to "Sign in with Google", "/auth/google_oauth2" %></button>
+            <button id="sign_in" class="btn facebookButton"><i class="fa fa-facebook" aria-hidden="true"></i>  <%= link_to "Sign in with Facebook", "/auth/facebook" %></button>
+
+          <%if Clearance.configuration.allow_sign_up? %>
+            <p>Haven't got an account yet?
+              <%= link_to "Sign up", sign_up_path %> with us
+            </p>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+
+
+
   <div id="flash">
     <% flash.each do |key, value| %>
-    <div class="flash <%= key %>"><%= value %></div>
+    <div class="flash <%= key %>">
+      <%= value %>
+    </div>
     <% end %>
   </div>
-  <div class = "bodyWrapper">
+
     <%= yield %>
-  </div>
+
 </body>
 </html>

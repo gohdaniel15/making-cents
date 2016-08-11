@@ -1,15 +1,18 @@
-<h1><%= @chat_room.title %></h1>
+<div class="container-fluid bodyWrapper">
+  <br />
+  <h1><%= @chat_room.title %></h1>
 
-<div id="messages" data-chat-room-id="<%= @chat_room.id %>">
-  <%= render @chat_room.messages %>
-</div>
-
-<%= form_for @message, url: '#', :html => {:id => "new_message"} do |f| %>
-  <div class="form-group">
-    <%= f.label :body %>
-    <%= f.text_area :body, class: 'form-control' %>
-    <small class="text-muted">From 2 to 1000 characters</small>
+  <div id="messages" data-chat-room-id="<%= @chat_room.id %>">
+    <%= render @chat_room.messages %>
   </div>
 
-  <%= f.submit "Post", class: 'btn btn-primary btn-lg', id: 'new_message' %>
-<% end %>
+  <%= form_for @message, url: '#', :html => {:id => "new_message"} do |f| %>
+    <div class="form-group">
+      <%= f.label :body %>
+      <%= f.text_area :body, class: 'form-control' %>
+      <small class="text-muted">From 2 to 1000 characters</small>
+    </div>
+
+    <%= f.submit "Post", class: 'btn btn-primary btn-lg', id: 'new_message' %>
+  <% end %>
+</div>

@@ -4,7 +4,7 @@
 
 /*button classes*/
 .btn-fb, .btn-google{
-	border: 1px solid black; 
+	border: 1px solid black;
 }
 
 .btn-fb {
@@ -25,4 +25,40 @@
 
 .sessionWrapper {
 	border: 2px solid;
+}
+
+.signinBox {
+	background-color: #ECECEA;
+	z-index: 11;
+	display: none;
+	position: relative;
+	width: 60%;
+	height: 450px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 70px;
+	@media(min-width:768px) {
+		width: 100em;
+	}
+}
+
+.panel {
+	@media(min-width:768px) {
+		width: 50%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.panel-body {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.form-horizontal {
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+
 }
