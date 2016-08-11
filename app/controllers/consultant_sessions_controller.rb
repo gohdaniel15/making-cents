@@ -1,6 +1,8 @@
 class ConsultantSessionsController < ApplicationController
   before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_consultant_session, only: [:destroy, :show, :edit, :update]
+  before_action :config_opentok, only: [:create, :video]
+  before_action :authorize_user, only: [:video]
 
   def index
     @consultant_sessions = ConsultantSession.all
@@ -27,6 +29,12 @@ class ConsultantSessionsController < ApplicationController
 
     @consultant_session = current_user.consultant_sessions.new(listing_params)
     @consultant_session.end_time = @consultant_session.start_time + (15*60)
+
+    # video start
+    session = @opentok.create_session(media_mode: :relayed)
+    @consultant_session.video_sessions_id = session.session_id
+    # video end 
+
     @consultant_session.save
     @consultant_session_default.start_time = @consultant_session.start_time + (15*60)
     #start loop
@@ -34,6 +42,12 @@ class ConsultantSessionsController < ApplicationController
       @consultant_session = current_user.consultant_sessions.new(listing_params)
       @consultant_session.start_time = @consultant_session_default.start_time
       @consultant_session.end_time = @consultant_session.start_time + (15*60)
+
+      # video start
+      session = @opentok.create_session
+      @consultant_session.video_sessions_id = session.session_id
+      # video end
+
       @consultant_session.save
       @consultant_session_default.start_time += (15*60)
     end
@@ -73,7 +87,30 @@ class ConsultantSessionsController < ApplicationController
     # end
   # end
 
+  def video
+    @token = @opentok.generate_token(@consultant_session.video_sessions_id)
+    @api_key = ENV['VIDEO_API_KEY']
+  end
+
   private
+
+  def authorize_user
+    @consultant_session = ConsultantSession.find(params[:id])
+    unless current_user.id == @consultant_session.user_id || current_user.id == @consultant_session.consultant_id
+      flash[:warning] = 'Not authorized'
+      redirect_to root_path
+    end
+    @customer = true if current_user.id == @consultant_session.user_id
+    # @consultant = true if current_user.id == @consultant_session.consultant_id
+  end
+
+  def config_opentok
+    @opentok ||= OpenTok::OpenTok.new(ENV['VIDEO_API_KEY'], ENV['VIDEO_SECRET_TOKEN'])
+    # if @opentok.nil?
+    #   @opentok = OpenTok::OpenTokSDK.new {API_KEY}, {API_SECRET}
+    # end
+  end
+
   def listing_params #white list of permitted parameters only
     params.require(:consultant_session).permit(:start_time, :end_time, :session_active_inactive, :rate, :consultant_id)
   end

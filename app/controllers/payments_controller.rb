@@ -15,6 +15,7 @@ class PaymentsController < ApplicationController
     nonce = params[:payment_method_nonce]
     render action: :new and return unless nonce
     result = Braintree::Transaction.sale(
+
       amount: params[:payments][:total_cost],
       payment_method_nonce: params[:payment_method_nonce]
     )
@@ -26,6 +27,7 @@ class PaymentsController < ApplicationController
       end
       flash[:success] = 'Payment has been made successfully'
       redirect_to root_path
+
     else
       render :new
     end
