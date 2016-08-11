@@ -23,12 +23,6 @@ class PaymentsController < ApplicationController
         @consultant_session = ConsultantSession.find(id)
         @consultant_session.update(user_id: current_user.id, session_active_inactive: false)
       end
-      if @consultant_session_default.start_time > Time.now
-        @chatroom = ChatroomWorker.perform_at(Time.now, "create", "#{current_user.id}", "#{current_user.name}'s Chatroom")
-      else
-        @chatroom = ChatroomWorker.perform_at(@consultant_session_default.start_time, "create", "#{current_user.id}", "#{current_user.name}'s Chatroom")
-      end
-      ChatroomWorker.perform_at(@consultant_session_default.end_time, "destroy", "#{current_user.id}", "#{current_user.name}'s Chatroom")
       flash[:success] = 'Payment has been made successfully'
       redirect_to root_path
     else
