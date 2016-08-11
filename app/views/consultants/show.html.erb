@@ -57,27 +57,6 @@
 
     <%= form_tag new_payment_path, method: :get do %>
 
-
-      <% @consultant.user.consultant_sessions.each do |s| %>
-        <div class="container sessionWrapper">
-          <% if !s.video_sessions_id.nil? && s.user_id == current_user.id %>
-            <p><%= link_to 'Start Video Session', video_consultant_session_path(s.id), data: { turbolinks: 'false' } %></p>
-          <% end %>
-          <p> Date:
-            <%= s.start_time.to_formatted_s(:short) %>
-          </p>
-          <p>Rates:
-            RM <%= s.rate %> per <%= (s.end_time - s.start_time) / 60 %> minutes
-          </p>
-          <p> Listing Status:
-            <% if s.session_active_inactive %>
-              Available
-            <% else %>
-              Reserved
-            <% end %>
-          </p>
-          <%= check_box_tag "consult_sessions[#{s.id}]" %>
-
     <% if current_user.id == @consultant.user.id %>
       <%= link_to new_consultant_session_path do %>
         <div class="buttonWrapper alignText">

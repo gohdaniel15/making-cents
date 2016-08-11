@@ -59,7 +59,14 @@
             <td><%= s.start_time.to_date.wday %></td>
             <td><%= s.start_time.time.to_formatted_s(:time) %></td>
             <td><%= s.rate %></td>
-            <td>link</td>
+            <td>
+              <p>
+                link
+              </p>
+              <% if !s.video_sessions_id.nil? && s.user_id == current_user.id %>
+                <p><%= link_to 'Start Video Session', video_consultant_session_path(s.id), data: { turbolinks: 'false' } %></p>
+              <% end %>
+          </td>
           </tr>
         <% end %>
         </tbody>
