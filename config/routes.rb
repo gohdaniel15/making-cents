@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   # routes for consultant sessions
   resources :consultant_sessions do
     member do
-      get '/video' => 'consultant_sessions#video', as: 'consultant_session_video'
+      get '/video' => 'consultant_sessions#video', as: 'video'
     end
   end
 

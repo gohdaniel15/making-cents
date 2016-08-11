@@ -1,7 +1,7 @@
 class ConsultantSessionsController < ApplicationController
   before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_consultant_session, only: [:destroy, :show, :edit, :update]
-  before_action :config_opentok, only: [:create]
+  before_action :config_opentok, only: [:create, :video]
 
   def index
     @consultant_sessions = ConsultantSession.all
@@ -28,6 +28,12 @@ class ConsultantSessionsController < ApplicationController
 
     @consultant_session = current_user.consultant_sessions.new(listing_params)
     @consultant_session.end_time = @consultant_session.start_time + (15*60)
+
+    # video start
+    session = @opentok.create_session(media_mode: :relayed)
+    @consultant_session.video_sessions_id = session.session_id
+    # video end 
+
     @consultant_session.save
     @consultant_session_default.start_time = @consultant_session.start_time + (15*60)
     #start loop
@@ -38,7 +44,7 @@ class ConsultantSessionsController < ApplicationController
 
       # video start
       session = @opentok.create_session
-      @consultant_session.video_session_id = session.session_id
+      @consultant_session.video_sessions_id = session.session_id
       # video end
 
       @consultant_session.save
@@ -93,11 +99,13 @@ class ConsultantSessionsController < ApplicationController
   end
 
   def video
+    @consultant_session = ConsultantSession.find(params[:id])
+    @token = @opentok.generate_token(@consultant_session.video_sessions_id)
   end
 
   private
   def config_opentok
-    @opentok ||= OpenTok::OpenTokSDK.new(ENV['VIDEO_API_KEY'], ENV['VIDEO_SECRET_TOKEN'])
+    @opentok ||= OpenTok::OpenTok.new(ENV['VIDEO_API_KEY'], ENV['VIDEO_SECRET_TOKEN'])
     # if @opentok.nil?
     #   @opentok = OpenTok::OpenTokSDK.new {API_KEY}, {API_SECRET}
     # end
