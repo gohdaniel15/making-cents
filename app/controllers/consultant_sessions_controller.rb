@@ -2,6 +2,7 @@ class ConsultantSessionsController < ApplicationController
   before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_consultant_session, only: [:destroy, :show, :edit, :update]
   before_action :config_opentok, only: [:create, :video]
+  before_action :authorize_user, only: [:video]
 
   def index
     @consultant_sessions = ConsultantSession.all
@@ -87,11 +88,22 @@ class ConsultantSessionsController < ApplicationController
   # end
 
   def video
-    @consultant_session = ConsultantSession.find(params[:id])
     @token = @opentok.generate_token(@consultant_session.video_sessions_id)
+    @api_key = ENV['VIDEO_API_KEY']
   end
 
   private
+
+  def authorize_user
+    @consultant_session = ConsultantSession.find(params[:id])
+    unless current_user.id == @consultant_session.user_id || current_user.id == @consultant_session.consultant_id
+      flash[:warning] = 'Not authorized'
+      redirect_to root_path
+    end
+    @customer = true if current_user.id == @consultant_session.user_id
+    # @consultant = true if current_user.id == @consultant_session.consultant_id
+  end
+
   def config_opentok
     @opentok ||= OpenTok::OpenTok.new(ENV['VIDEO_API_KEY'], ENV['VIDEO_SECRET_TOKEN'])
     # if @opentok.nil?

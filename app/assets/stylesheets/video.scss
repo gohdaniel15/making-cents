@@ -8,5 +8,20 @@
 }
 
 #videobox object {
+	position: absolute;
 	float: left;
+}
+
+#publisher {
+	border: solid black;
+	width: 150px;
+  height: 150px;
+  z-index: 2;
+  position: absolute;
+  top: 1px;
+  left: 15px;
+}
+
+#subscriber {
+	height: 500px;
 }

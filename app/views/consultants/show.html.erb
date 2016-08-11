@@ -57,8 +57,8 @@
 
       <% @consultant.user.consultant_sessions.each do |s| %>
         <div class="container sessionWrapper">
-          <% unless s.video_sessions_id.nil? %>
-            <p><%= link_to 'Start Video Session', video_consultant_session_path %></p>
+          <% if !s.video_sessions_id.nil? && s.user_id == current_user.id %>
+            <p><%= link_to 'Start Video Session', video_consultant_session_path(s.id), data: { turbolinks: 'false' } %></p>
           <% end %>
           <p> Date:
             <%= s.start_time.to_formatted_s(:short) %>

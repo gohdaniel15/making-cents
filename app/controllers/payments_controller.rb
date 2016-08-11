@@ -11,18 +11,20 @@ class PaymentsController < ApplicationController
   end
 
   def create
+    consult_sessions = params[:payment][:consult_sessions]
     nonce = params[:payment_method_nonce]
     render action: :new and return unless nonce
     result = Braintree::Transaction.sale(
-      amount: params[:total_cost],
+      amount: params[:payment][:total_cost],
       payment_method_nonce: params[:payment_method_nonce]
     )
-    byebug
+    # byebug
     if result.success?
-      @consult_sessions.each do |id|
+      consult_sessions.each do |id|
         @consultant_session = ConsultantSession.find(id)
         @consultant_session.update(user_id: current_user.id, session_active_inactive: false)
       end
+      flash[:success] = 'Payment has been made successfully'
       redirect_to root_path
     else
       render :new
