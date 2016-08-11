@@ -90,7 +90,7 @@
         </tr>
       </thead>
       <tbody>
-      <%= form_tag session_booking_path(@consultant) do %>
+
       <% count = 0 %>
         <% @consultant.user.consultant_sessions.where(session_active_inactive: true).each do |s| %>
           <tr>
