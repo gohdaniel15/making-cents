@@ -6,7 +6,7 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV['REDIS_URL'] %>
+  url: <%= ENV['REDISTOGO_URL'] %>
 #
 # local: &local
 #   :url: redis://localhost:6379
