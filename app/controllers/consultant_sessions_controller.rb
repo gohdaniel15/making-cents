@@ -20,12 +20,6 @@ class ConsultantSessionsController < ApplicationController
 
   def create
     @consultant_session_default = current_user.consultant_sessions.new(listing_params)
-    if @consultant_session_default.start_time > Time.now
-      @chatroom = ChatroomWorker.perform_at(Time.now, "create", "#{current_user.id}", "#{current_user.name}'s Chatroom")
-    else
-      @chatroom = ChatroomWorker.perform_at(@consultant_session_default.start_time, "create", "#{current_user.id}", "#{current_user.name}'s Chatroom")
-    end
-    ChatroomWorker.perform_at(@consultant_session_default.end_time, "destroy", "#{current_user.id}", "#{current_user.name}'s Chatroom")
 
     @consultant_session = current_user.consultant_sessions.new(listing_params)
     @consultant_session.end_time = @consultant_session.start_time + (15*60)
@@ -33,7 +27,7 @@ class ConsultantSessionsController < ApplicationController
     # video start
     session = @opentok.create_session(media_mode: :relayed)
     @consultant_session.video_sessions_id = session.session_id
-    # video end 
+    # video end
 
     @consultant_session.save
     @consultant_session_default.start_time = @consultant_session.start_time + (15*60)

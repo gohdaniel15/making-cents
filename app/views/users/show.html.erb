@@ -61,7 +61,7 @@
             <td><%= s.rate %></td>
             <td>
               <p>
-                link
+                <%= link_to '/chat_rooms/1' do %><button class="btn btn-primary">Enter Chat</button><% end %>
               </p>
               <% if !s.video_sessions_id.nil? && s.user_id == current_user.id %>
                 <p><%= link_to 'Start Video Session', video_consultant_session_path(s.id), data: { turbolinks: 'false' } %></p>

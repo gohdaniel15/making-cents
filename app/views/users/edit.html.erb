@@ -1,7 +1,4 @@
-<div id="clearance" class="edit">
-
-  <h2>Edit profile picture</h2>
-
+<div class="container-fluid bodyWrapper">
   <%= form_for @user do |form| %>
 
   <div class="text-field">
@@ -9,29 +6,28 @@
     <%= form.text_field :name %>
   </div>
 
-	<div class="text-field">
-	  <%= form.label :email %>
-	  <%= form.text_field :email, type: 'email' %>
-	</div>
+  <div class="text-field">
+    <%= form.label :email %>
+    <%= form.text_field :email, type: 'email' %>
+  </div>
 
-	<div class="password-field">
-	  <%= form.label :password %>
-	  <%= form.password_field :password %>
-	</div>
+  <div class="password-field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
 
-	<div class="password-field">
-	  <%= form.label :birthday%>
-	  <%= form.text_field :birthday %>
-	</div>
+  <div class="password-field">
+    <%= form.label :birthday%>
+    <%= form.text_field :birthday %>
+  </div>
 
-	<div class="file-field">
-	  <%= form.label "Upload a profile picture" %>
-	  <%= form.file_field :avatar %>
-	</div>
+  <div class="file-field">
+    <%= form.label "Upload a profile picture" %>
+    <%= form.file_field :avatar %>
+  </div>
 
     <div class="submit-field">
       <%= form.submit %>
     </div>
   <% end %>
-</div>
 </div>
