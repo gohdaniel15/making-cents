@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # Root page
   root to: "home#show"
   resource :home, only: [:show]
