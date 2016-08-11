@@ -73,18 +73,6 @@ class ConsultantSessionsController < ApplicationController
     # end
   # end
 
-  def book
-    params[:consult_sessions].keys.each do |id|
-      @consultant_session = ConsultantSession.find(id)
-      @consultant_session.update(user_id: current_user.id, session_active_inactive: false)
-    end
-
-  redirect_to root_path
-
-  #add user_id to consultant_session
-  # disable session marked
-  end
-
   private
   def listing_params #white list of permitted parameters only
     params.require(:consultant_session).permit(:start_time, :end_time, :session_active_inactive, :rate, :consultant_id)

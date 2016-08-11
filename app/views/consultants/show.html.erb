@@ -55,6 +55,8 @@
 
     <br />
 
+    <%= form_tag new_payment_path, method: :get do %>
+
     <% if current_user.id == @consultant.user.id %>
       <%= link_to new_consultant_session_path do %>
         <div class="buttonWrapper alignText">
@@ -75,7 +77,7 @@
           AVAILABLE SESSIONS
         </p>
       </div>
-  
+
     <table class="table">
       <thead class="thead-inverse">
         <tr>
