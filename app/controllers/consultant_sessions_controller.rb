@@ -18,7 +18,13 @@ class ConsultantSessionsController < ApplicationController
 
   def create
     @consultant_session_default = current_user.consultant_sessions.new(listing_params)
-    # save 1st one here
+    if @consultant_session_default.start_time > Time.now
+      @chatroom = ChatroomWorker.perform_at(Time.now, "create", "#{current_user.id}", "#{current_user.name}'s Chatroom")
+    else
+      @chatroom = ChatroomWorker.perform_at(@consultant_session_default.start_time, "create", "#{current_user.id}", "#{current_user.name}'s Chatroom")
+    end
+    ChatroomWorker.perform_at(@consultant_session_default.end_time, "destroy", "#{current_user.id}", "#{current_user.name}'s Chatroom")
+
     @consultant_session = current_user.consultant_sessions.new(listing_params)
     @consultant_session.end_time = @consultant_session.start_time + (15*60)
     @consultant_session.save
@@ -31,6 +37,7 @@ class ConsultantSessionsController < ApplicationController
       @consultant_session.save
       @consultant_session_default.start_time += (15*60)
     end
+
 
     redirect_to consultant_path(current_user.consultants.last)
 
@@ -65,8 +72,7 @@ class ConsultantSessionsController < ApplicationController
       # redirect_to consultant_sessions_path
     # end
   # end
-  
-  
+
   private
   def listing_params #white list of permitted parameters only
     params.require(:consultant_session).permit(:start_time, :end_time, :session_active_inactive, :rate, :consultant_id)
