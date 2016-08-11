@@ -86,18 +86,6 @@ class ConsultantSessionsController < ApplicationController
     # end
   # end
 
-  def book
-    params[:consult_sessions].keys.each do |id|
-      @consultant_session = ConsultantSession.find(id)
-      @consultant_session.update(user_id: current_user.id, session_active_inactive: false)
-    end
-
-  redirect_to root_path
-
-  #add user_id to consultant_session
-  # disable session marked
-  end
-
   def video
     @consultant_session = ConsultantSession.find(params[:id])
     @token = @opentok.generate_token(@consultant_session.video_sessions_id)

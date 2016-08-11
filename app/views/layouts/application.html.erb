@@ -10,6 +10,7 @@
   <%= csrf_meta_tags %>
   <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
   <% if signed_in? %>
     <%= tag :meta, name: "current-user", data: { id: current_user.id } %>
   <% end %>

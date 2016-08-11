@@ -53,7 +53,7 @@
     <h3>Consultant Sessions:
       <%= @consultant.user.consultant_sessions.count %>
     </h3>
-    <%= form_tag session_booking_path(@consultant) do %>
+    <%= form_tag new_payment_path, method: :get do %>
 
       <% @consultant.user.consultant_sessions.each do |s| %>
         <div class="container sessionWrapper">
