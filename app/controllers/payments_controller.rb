@@ -22,7 +22,7 @@ class PaymentsController < ApplicationController
       consult_sessions.each do |id|
         @consultant_session = ConsultantSession.find(id)
         @consultant_session.update(user_id: current_user.id, session_active_inactive: false)
-      end
+      end 
       flash[:success] = 'Payment has been made successfully'
       redirect_to root_path
     else

@@ -5,7 +5,6 @@ class CreateConsultantSessions < ActiveRecord::Migration[5.0]
       t.datetime :end_time
       t.boolean :session_active_inactive
       
-      t.references :consultant, foreign_key: true
       t.references :user, foreign_key: true
 
       t.timestamps
